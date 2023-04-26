@@ -9,10 +9,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>812,4225</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>928.8,4911.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_GoogleSheet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="82">
+    <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -56,10 +56,11 @@
       <x:String>UiPath.UIAutomationCore.Contracts</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="110">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="63">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -125,34 +126,35 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="822,4160" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="866.4,4846.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FileName" />
       <Variable x:TypeArguments="gadvd:File[]" Name="ArrCurYrFiles" />
       <Variable x:TypeArguments="x:Boolean" Name="IsFileMissing" />
       <Variable x:TypeArguments="x:Boolean" Name="IsFolderMissing" />
+      <Variable x:TypeArguments="x:String" Name="test" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="760,178" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="824.8,916" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Process Date is Today" sap:VirtualizedContainerService.HintSize="400,192" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Process Date is Today" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Get Today Date" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign DisplayName="Get Today Date" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[out_DateToProcess]</OutArgument>
             </Assign.To>
@@ -163,27 +165,49 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Process date is other than Today" sap:VirtualizedContainerService.HintSize="400,498" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Process date is other than Today" sap:VirtualizedContainerService.HintSize="476.8,712.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="UserDate" />
+          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Process Date" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;ProcessDate&quot;).ToString]" />
-          <Assign DisplayName="Get Date from Config" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <ui:LogMessage DisplayName="Log Process Date" sap:VirtualizedContainerService.HintSize="435.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_Config(&quot;ProcessDate&quot;).ToString]" />
+          <Assign sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[UserDate]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_Config("ProcessDate").ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Get Date from Config" sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[out_DateToProcess]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(in_Config("ProcessDate").ToString,"MM/dd/yyyy HH:mm:ss",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(UserDate.ToString,"MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:WriteCell Cell="[in_Config(&quot;Today_DateCell&quot;).ToString.Trim]" DisplayName="Write Today after reading date" sap:VirtualizedContainerService.HintSize="338,125" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Constants" Text="[in_Config(&quot;TodayValue&quot;).ToString.Trim]" WorkbookPath="[in_ConfigPath]" />
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,287.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,208.8" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:WriteCell Cell="[in_Config(&quot;Today_DateCell&quot;).ToString.Trim]" DisplayName="Write Today after reading date" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Constants" Text="[in_Config(&quot;TodayValue&quot;).ToString.Trim]" WorkbookPath="[in_ConfigPath]" />
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="760,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="760,3679" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="824.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="824.8,3664.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -192,7 +216,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="722,3363" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="Custom" Password="notasecret" Services="Unselected">
+        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="721.6,3353.6" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="Custom" Password="notasecret" Services="Unselected">
           <uga:GSuiteApplicationScope.AuthenticationScopes>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
               <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
