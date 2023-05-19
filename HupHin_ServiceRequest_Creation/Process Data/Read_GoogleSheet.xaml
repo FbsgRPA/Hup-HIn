@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>928.8,4911.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>928.8,4115.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_GoogleSheet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -126,7 +126,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="866.4,4846.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="779.2,4050.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FileName" />
       <Variable x:TypeArguments="gadvd:File[]" Name="ArrCurYrFiles" />
@@ -139,11 +139,11 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="824.8,916" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="737.6,176.8" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -206,8 +206,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="824.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="824.8,3664.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="737.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="737.6,3608" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,13 +216,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="721.6,3353.6" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="Custom" Password="notasecret" Services="Unselected">
+        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="700.8,3293.6" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="UiPath" Password="notasecret" Services="Unselected">
           <uga:GSuiteApplicationScope.AuthenticationScopes>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
-              <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
-              <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive.readonly</InArgument>
-              <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive.file</InArgument>
-              <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive.appdata</InArgument>
               <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive</InArgument>
             </scg:List>
           </uga:GSuiteApplicationScope.AuthenticationScopes>
@@ -231,7 +227,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,3242" sap2010:WorkflowViewState.IdRef="Sequence_34">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="667.2,3181.6" sap2010:WorkflowViewState.IdRef="Sequence_34">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="MonthName" />
                   <Variable x:TypeArguments="x:Int32" Name="YearInfo" />
@@ -244,7 +240,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign sap2010:Annotation.AnnotationText="From mentioned date get month and year to read file for the mentioned date" DisplayName="Get Month and Year" sap:VirtualizedContainerService.HintSize="626,118" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="From mentioned date get month and year to read file for the mentioned date" DisplayName="Get Month and Year" sap:VirtualizedContainerService.HintSize="625.6,112.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -281,21 +277,21 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
-                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" Result="{x:Null}" sap2010:Annotation.AnnotationText="Get id of parent folder in this case it is &quot;Daily Sales&quot;" AuthScopesInvalid="False" DisplayName="Get Sales folder ID" FirstResultId="[SalesFolderId]" sap:VirtualizedContainerService.HintSize="626,121" sap2010:WorkflowViewState.IdRef="FindFiles_4" MaxResults="50" SearchExpression="[&quot;name = '&quot;+in_Config(&quot;GoogleFolder&quot;).ToString+&quot;'&quot;]" SupportsTeamDrives="False">
+                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" Result="{x:Null}" sap2010:Annotation.AnnotationText="Get id of parent folder in this case it is &quot;Daily Sales&quot;" AuthScopesInvalid="False" DisplayName="Get Sales folder ID" FirstResultId="[SalesFolderId]" sap:VirtualizedContainerService.HintSize="625.6,112" sap2010:WorkflowViewState.IdRef="FindFiles_4" MaxResults="50" SearchExpression="[&quot;name = '&quot;+in_Config(&quot;GoogleFolder&quot;).ToString+&quot;'&quot;]" SupportsTeamDrives="False">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uga:FindFiles>
-                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Get all files from sales folder &#xA;" AuthScopesInvalid="False" DisplayName="Get files inside Sales folder" sap:VirtualizedContainerService.HintSize="626,132" sap2010:WorkflowViewState.IdRef="FindFiles_5" MaxResults="50" Result="[ArrSalesFiles]" SearchExpression="[&quot;'&quot; + SalesFolderId + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
+                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Get all files from sales folder &#xA;" AuthScopesInvalid="False" DisplayName="Get files inside Sales folder" sap:VirtualizedContainerService.HintSize="625.6,124.8" sap2010:WorkflowViewState.IdRef="FindFiles_5" MaxResults="50" Result="[ArrSalesFiles]" SearchExpression="[&quot;'&quot; + SalesFolderId + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uga:FindFiles>
-                <Assign DisplayName="Get Current Year Matching Folder" sap:VirtualizedContainerService.HintSize="626,70" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign DisplayName="Get Current Year Matching Folder" sap:VirtualizedContainerService.HintSize="625.6,60" sap2010:WorkflowViewState.IdRef="Assign_13">
                   <Assign.To>
                     <OutArgument x:TypeArguments="gadvd:File[]">[ArrSalesFiles]</OutArgument>
                   </Assign.To>
@@ -505,7 +501,7 @@
         </uga:GSuiteApplicationScope>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="726,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="704,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -516,18 +512,18 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="400,360" sap2010:WorkflowViewState.IdRef="Sequence_42">
+            <Sequence DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_42">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Error" Message="[exception.Message]" />
-              <Throw DisplayName="Throw Gsuit exception" Exception="[New Exception(in_Config(&quot;ExcpMsg_GsuitIssue&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_7" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Error" Message="[exception.Message]" />
+              <Throw DisplayName="Throw Gsuit exception" Exception="[New Exception(in_Config(&quot;ExcpMsg_GsuitIssue&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_7" />
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="726,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="704,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -538,7 +534,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <Rethrow DisplayName="Rethrow Exception" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            <Rethrow DisplayName="Rethrow Exception" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

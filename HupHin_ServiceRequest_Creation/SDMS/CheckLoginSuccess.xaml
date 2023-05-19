@@ -6,6 +6,7 @@
     <x:Property Name="out_LogExceptionMsg" Type="OutArgument(x:String)" />
     <x:Property Name="in_TimeOut" Type="InArgument(x:String)" />
     <x:Property Name="io_UiSdmsPageTab" Type="InOutArgument(ui:Browser)" />
+    <x:Property Name="in_Timeout2" Type="InArgument(x:String)" />
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>928.8,1378.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
@@ -151,26 +152,6 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Delay>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Click Ok for pasword popup" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="333.6,138.4" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e812a212-b156-482c-a47a-9b2883c97f95" InformativeScreenshot="9d7ea41a921d7941e2480e64038d65c3" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Hup Hin SDMS - Google Chrome' /&gt;&lt;ctrl name='Change your password' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" TimeoutMS="[Cint(in_TimeOut)]" WaitForReady="INTERACTIVE" />
-                    </ui:Click.Target>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:Click>
                   <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click on cancel" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
@@ -183,12 +164,32 @@
                       </ui:CursorPosition>
                     </ui:Click.CursorPosition>
                     <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b3f0140-76e2-4d29-8308-2946e5e69c7d" InformativeScreenshot="a802ac81571dcadad87a649293536b8c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Hup Hin SDMS - Google Chrome' /&gt;&lt;ctrl name='Check your saved passwords' role='dialog' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" TimeoutMS="[Cint(in_TimeOut)]">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5b3f0140-76e2-4d29-8308-2946e5e69c7d" InformativeScreenshot="a802ac81571dcadad87a649293536b8c" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Hup Hin SDMS - Google Chrome' /&gt;&lt;ctrl name='Check your saved passwords' role='dialog' /&gt;&lt;ctrl name='Close' role='push button' /&gt;" TimeoutMS="[Cint(in_Timeout2)]">
                         <ui:Target.WaitForReady>
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
                       </ui:Target>
                     </ui:Click.Target>
+                  </ui:Click>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="Click Ok for pasword popup" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="333.6,138.4" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e812a212-b156-482c-a47a-9b2883c97f95" InformativeScreenshot="9d7ea41a921d7941e2480e64038d65c3" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Hup Hin SDMS - Google Chrome' /&gt;&lt;ctrl name='Change your password' role='dialog' /&gt;&lt;ctrl name='OK' role='push button' /&gt;" TimeoutMS="[Cint(in_Timeout2)]" WaitForReady="INTERACTIVE" />
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:Click>
                 </Sequence>
               </If.Then>

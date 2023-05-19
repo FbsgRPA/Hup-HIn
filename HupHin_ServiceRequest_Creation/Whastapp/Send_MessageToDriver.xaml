@@ -8,11 +8,12 @@
     <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property Name="in_ProcessDate" Type="InArgument(s:DateTime)" />
     <x:Property Name="in_TimeOut" Type="InArgument(x:String)" />
+    <x:Property Name="in_StartText" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>870,3522</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1294.4,2718.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_MessageToDriver_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -53,7 +54,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="51">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -106,26 +107,26 @@
       <AssemblyReference>System.Data.Common</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_MessageToDriver" sap:VirtualizedContainerService.HintSize="880,3457" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_MessageToDriver" sap:VirtualizedContainerService.HintSize="1304.8,2653.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_WhatsappTab]" BrowserType="Chrome" DisplayName="Whatsapp Web Attach browser" sap:VirtualizedContainerService.HintSize="818,3335" sap2010:WorkflowViewState.IdRef="BrowserScope_2" UiBrowser="[in_WhatsappTab]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_WhatsappTab]" BrowserType="Chrome" DisplayName="Whatsapp Web Attach browser" sap:VirtualizedContainerService.HintSize="1263.2,2560.8" sap2010:WorkflowViewState.IdRef="BrowserScope_2" UiBrowser="[in_WhatsappTab]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Process to send whatsapp Message" sap:VirtualizedContainerService.HintSize="784,3217" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Process to send whatsapp Message" sap:VirtualizedContainerService.HintSize="1229.6,2452" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate Whatsapp Page" sap:VirtualizedContainerService.HintSize="722,116" sap2010:WorkflowViewState.IdRef="Activate_2">
+            <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="Activate Whatsapp Page" sap:VirtualizedContainerService.HintSize="1188,107.2" sap2010:WorkflowViewState.IdRef="Activate_2">
               <ui:Activate.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3fc70ea8-3b95-40a9-aedd-76e95011f6bd" InformativeScreenshot="a511a6c61548429afec039a5f17835d6" Selector="&lt;webctrl aria-label='Menu' aria-role='button' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -137,9 +138,9 @@
                 </ui:Target>
               </ui:Activate.Target>
             </ui:Activate>
-            <ui:LogMessage DisplayName="Log Whatsapp URL" sap:VirtualizedContainerService.HintSize="722,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Whatsapp URL: &quot;+in_WhatsappMsgUrl+in_CountryCode+in_DriverNumber.Trim]" />
-            <ui:NavigateTo Browser="[in_WhatsappTab]" DisplayName="Go To URL for sending whatsapp Message" sap:VirtualizedContainerService.HintSize="722,69" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[in_WhatsappMsgUrl+in_CountryCode+in_DriverNumber.Trim]" />
-            <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DelayBefore="2000" DisplayName="Click 'push button  Leave'" sap:VirtualizedContainerService.HintSize="722,116" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:LogMessage DisplayName="Log Whatsapp URL" sap:VirtualizedContainerService.HintSize="1188,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Whatsapp URL: &quot;+in_WhatsappMsgUrl+in_CountryCode+in_DriverNumber.Trim]" />
+            <ui:NavigateTo Browser="[in_WhatsappTab]" DisplayName="Go To URL for sending whatsapp Message" sap:VirtualizedContainerService.HintSize="1188,60" sap2010:WorkflowViewState.IdRef="NavigateTo_1" Url="[in_WhatsappMsgUrl+in_CountryCode+in_DriverNumber.Trim]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DelayBefore="2000" DisplayName="Click 'push button  Leave'" sap:VirtualizedContainerService.HintSize="1188,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -151,30 +152,30 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="926b122d-8b44-429a-b363-0cbfcc09f282" InformativeScreenshot="ff44c95d95de1fe595f141e457d5d8cc" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Leave site?' /&gt;&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Leave' role='push button' /&gt;" TimeoutMS="[Cint(in_TimeOut)]">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="926b122d-8b44-429a-b363-0cbfcc09f282" InformativeScreenshot="ff44c95d95de1fe595f141e457d5d8cc" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Leave site?' /&gt;&lt;ctrl name='Leave site?' role='dialog' /&gt;&lt;ctrl name='Leave' role='push button' /&gt;" TimeoutMS="[Cint(in_TimeOut)-3000]">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="722,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Clicked on leave&quot;]" />
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Send Message tab" sap:VirtualizedContainerService.HintSize="722,2399" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="5980abe03f0f00d7fe32ca087616b02e" Selector="&lt;html app='chrome.exe' title='Share on WhatsApp' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Send Message tab" sap:VirtualizedContainerService.HintSize="1188,1832" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="5980abe03f0f00d7fe32ca087616b02e" Selector="&lt;html app='chrome.exe' title='Share on WhatsApp' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,2243" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1154.4,1684.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <Sequence.Variables>
-                      <Variable x:TypeArguments="x:Boolean" Name="IsNumInvalid" />
+                      <Variable x:TypeArguments="x:Boolean" Name="IsNumValid" />
+                      <Variable x:TypeArguments="x:Boolean" Name="IsTextBoxFound" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Continue to Chat" sap:VirtualizedContainerService.HintSize="626,116" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Continue to Chat" sap:VirtualizedContainerService.HintSize="1112.8,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -196,7 +197,7 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Use whatsapp Web" sap:VirtualizedContainerService.HintSize="626,116" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Use whatsapp Web" sap:VirtualizedContainerService.HintSize="1112.8,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -218,18 +219,45 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:UiElementExists DisplayName="Check Phone number is valid" Exists="[IsNumInvalid]" sap:VirtualizedContainerService.HintSize="626,116" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="38e97d7a-a642-40f9-8f81-be2e42f1e749" InformativeScreenshot="d9b3632a43ab925c2f0a23285f63d7e1" Selector="&lt;html app='chrome.exe' title='WhatsApp' /&gt;&lt;webctrl isleaf='1' parentid='app' tag='DIV' aaname='Phone number shared via url is invalid.' /&gt;" TimeoutMS="[Cint(in_TimeOut)]">
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                    <If Condition="[IsNumInvalid=False]" DisplayName="If Phone number Valid or not" sap:VirtualizedContainerService.HintSize="626,1653" sap2010:WorkflowViewState.IdRef="If_2">
+                    <Pick DisplayName="Pick Check valid number" sap:VirtualizedContainerService.HintSize="1112.8,52.8" sap2010:WorkflowViewState.IdRef="Pick_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <PickBranch DisplayName="PickBranch: valid Number" sap:VirtualizedContainerService.HintSize="383.2,400" sap2010:WorkflowViewState.IdRef="PickBranch_1">
+                        <PickBranch.Trigger>
+                          <ui:UiElementExists DisplayName="Number is valid" Exists="[IsTextBoxFound]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2f8e533d-e525-4910-a83c-547d743f0980" InformativeScreenshot="0d06e707e879d4f3dc3b06d3ff032a69" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </PickBranch.Trigger>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Number is valid&quot;]" />
+                      </PickBranch>
+                      <PickBranch DisplayName="PickBranch: Invalid Num" sap:VirtualizedContainerService.HintSize="383.2,400" sap2010:WorkflowViewState.IdRef="PickBranch_2">
+                        <PickBranch.Trigger>
+                          <ui:UiElementExists DisplayName="Check Phone number is valid" Exists="[IsNumValid]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="38e97d7a-a642-40f9-8f81-be2e42f1e749" InformativeScreenshot="d9b3632a43ab925c2f0a23285f63d7e1" Selector="&lt;html app='chrome.exe' title='WhatsApp' /&gt;&lt;webctrl parentid='app' tag='DIV' aaname='Phone number shared via url is invalid*' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                        </PickBranch.Trigger>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Number is invalid&quot;]" />
+                      </PickBranch>
+                    </Pick>
+                    <If Condition="[IsNumValid=False or IsTextBoxFound]" DisplayName="If Phone number Valid or not" sap:VirtualizedContainerService.HintSize="1112.8,1204.8" sap2010:WorkflowViewState.IdRef="If_2">
                       <If.Then>
-                        <Sequence DisplayName="Number is valid" sap:VirtualizedContainerService.HintSize="544,1130" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="Number is valid" sap:VirtualizedContainerService.HintSize="693.6,1045.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="WhatsappMsg" />
                           </Sequence.Variables>
@@ -239,49 +267,58 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[String.IsNullOrEmpty(in_TransactionItem(&quot;JOB SITE 2&quot;).ToString)]" DisplayName="If Two Job Site" sap:VirtualizedContainerService.HintSize="482,547" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If Condition="[String.IsNullOrEmpty(in_TransactionItem(&quot;JOB SITE 2&quot;).ToString)]" DisplayName="If Two Job Site" sap:VirtualizedContainerService.HintSize="652,312" sap2010:WorkflowViewState.IdRef="If_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence DisplayName="Only One Job Site" sap:VirtualizedContainerService.HintSize="400,192" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <Sequence DisplayName="Only One Job Site" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign DisplayName="Whatsapp Msg If 1 Job site " sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <Assign DisplayName="Whatsapp Msg If 1 Job site " sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[WhatsappMsg]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">["DATE:"+in_ProcessDate.ToString("dd/MM/yyyy")+"[d(ctrl)k(enter)]"+"[u(ctrl)]" +"TIME:"+in_TransactionItem("START").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]" +"CUTOMER:"+in_TransactionItem("CUSTOMER").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 1"+in_TransactionItem("JOB SITE 1").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT:"+in_TransactionItem("SITE 1 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"WORK AS"+in_TransactionItem("TYPE").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">["DATE: "+in_ProcessDate.ToString("dd/MM/yyyy")+"[d(ctrl)k(enter)]"+"[u(ctrl)]" +"TIME: "+in_TransactionItem("START").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]" +"CUSTOMER: "+in_TransactionItem("CUSTOMER").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 1: "+in_TransactionItem("JOB SITE 1").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"SITE 1 CON NAME:"+in_TransactionItem("SITE 1 CON").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT: "+in_TransactionItem("SITE 1 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"WORK AS: "+in_TransactionItem("TYPE").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"VEH NO:"+in_TransactionItem("VEH NO").ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <Sequence DisplayName="Two Job Site" sap:VirtualizedContainerService.HintSize="400,192" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <Sequence DisplayName="Two Job Site" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign DisplayName="Whatsapp Msg If 2 Job site " sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                <Assign DisplayName="Whatsapp Msg If 2 Job site " sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[WhatsappMsg]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">["DATE:"+in_ProcessDate.ToString("dd/MM/yyyy")+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"TIME:"+in_TransactionItem("START").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CUTOMER:"+in_TransactionItem("CUSTOMER").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 1"+in_TransactionItem("JOB SITE 1").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT1:"+in_TransactionItem("SITE 1 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 2"+in_TransactionItem("JOB SITE 2").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT 2:"+in_TransactionItem("SITE 2 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"WORK AS"+in_TransactionItem("TYPE").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">["DATE: "+in_ProcessDate.ToString("dd/MM/yyyy")+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"TIME: "+in_TransactionItem("START").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CUSTOMER: "+in_TransactionItem("CUSTOMER").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 1: "+in_TransactionItem("JOB SITE 1").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"SITE 1 CON NAME:"+in_TransactionItem("SITE 1 CON").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT1: "+in_TransactionItem("SITE 1 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"LOCATION 2: "+in_TransactionItem("JOB SITE 2").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"SITE 2 CON NAME:"+in_TransactionItem("SITE 2 CON").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"CONTACT 2: "+in_TransactionItem("SITE 2 NO").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"WORK AS: "+in_TransactionItem("TYPE").ToString+"[d(ctrl)k(enter)]"+"[u(ctrl)]"+"VEH NO:"+in_TransactionItem("VEH NO").ToString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
                             </If.Else>
                           </If>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click To Textbox" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <Assign DisplayName="Assign Start text" sap:VirtualizedContainerService.HintSize="652,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[WhatsappMsg]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[in_StartText+"[d(ctrl)k(enter)]"+"[u(ctrl)]" +WhatsappMsg]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="652,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click To Textbox" sap:VirtualizedContainerService.HintSize="652,86.4" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -293,41 +330,40 @@
                               </ui:CursorPosition>
                             </ui:Click.CursorPosition>
                             <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82ae9017-3846-4b3b-ad6f-f54e57a348a9" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82ae9017-3846-4b3b-ad6f-f54e57a348a9" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Message" sap:VirtualizedContainerService.HintSize="338,144" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="True" Text="[WhatsappMsg]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Wait for ready to complete is used because some time it does not type text" ClickBeforeTyping="True" DisplayName="Type Message" EmptyField="True" sap:VirtualizedContainerService.HintSize="652,179.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="True" Text="[WhatsappMsg]">
                             <ui:TypeInto.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4624869-d93d-4495-bf02-af9f62e30746" InformativeScreenshot="8c6ed73d21042f09dd90f9d0fdcc29f4" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4624869-d93d-4495-bf02-af9f62e30746" InformativeScreenshot="8c6ed73d21042f09dd90f9d0fdcc29f4" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
                               </ui:Target>
                             </ui:TypeInto.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
                           </ui:TypeInto>
-                          <ui:LogMessage DisplayName="Log Message Sent" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Whatsapp Message sent to &quot;+in_TransactionItem(&quot;TEL NO&quot;).ToString]" />
+                          <ui:LogMessage DisplayName="Log Message Sent" sap:VirtualizedContainerService.HintSize="652,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Whatsapp Message sent to &quot;+in_TransactionItem(&quot;TEL NO&quot;).ToString]" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Number is not valid" sap:VirtualizedContainerService.HintSize="400,360" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence DisplayName="Number is not valid" sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_14">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Invalid Number" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Driver number is not valid. Can't send whatsapp message to mentioned number &quot;+in_TransactionItem(&quot;TEL NO&quot;).ToString]" />
-                          <Throw DisplayName="Throw: Invalid Number" Exception="[New BusinessRuleException(in_InvalidNumExcp+in_TransactionItem(&quot;TEL NO&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                          <ui:LogMessage DisplayName="Log Invalid Number" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Driver number is not valid. Can't send whatsapp message to mentioned number &quot;+in_TransactionItem(&quot;TEL NO&quot;).ToString]" />
+                          <Throw DisplayName="Throw: Invalid Number" Exception="[New BusinessRuleException(in_InvalidNumExcp+in_TransactionItem(&quot;TEL NO&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
                         </Sequence>
                       </If.Else>
                     </If>
