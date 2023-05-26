@@ -337,7 +337,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Wait for ready to complete is used because some time it does not type text" ClickBeforeTyping="True" DisplayName="Type Message" EmptyField="True" sap:VirtualizedContainerService.HintSize="652,179.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="True" Text="[WhatsappMsg]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Wait for ready to complete is used because some time it does not type text" ClickBeforeTyping="True" DisplayName="Type Message" EmptyField="True" sap:VirtualizedContainerService.HintSize="652,179.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="True" Text="[WhatsappMsg+ &quot;[k(enter)]&quot;]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4624869-d93d-4495-bf02-af9f62e30746" InformativeScreenshot="8c6ed73d21042f09dd90f9d0fdcc29f4" Selector="&lt;webctrl aria-role='textbox' parentid='main' tag='DIV' uipath-html-title='Type a message' /&gt;&lt;webctrl tag='P' /&gt;" WaitForReady="COMPLETE">
                                 <ui:Target.TimeoutMS>

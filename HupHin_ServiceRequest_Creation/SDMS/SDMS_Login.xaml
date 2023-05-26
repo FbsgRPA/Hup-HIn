@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>991.2,3142.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>991.2,3249.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SDMS_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
@@ -109,7 +109,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Take SDMS url from config file and Launch SDMS website .&#xA;Get the credential stored.&#xA;Check whether login page is loaded successfully or not.&#xA;Enter username and password to login to SDMS website and check whether the login is successful or not.&#xA;In case of failure, retry 3 times" DisplayName="SDMS_Login" sap:VirtualizedContainerService.HintSize="1001.6,3077.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Take SDMS url from config file and Launch SDMS website .&#xA;Get the credential stored.&#xA;Check whether login page is loaded successfully or not.&#xA;Enter username and password to login to SDMS website and check whether the login is successful or not.&#xA;In case of failure, retry 3 times" DisplayName="SDMS_Login" sap:VirtualizedContainerService.HintSize="1001.6,3184.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isPageLoaded" />
       <Variable x:TypeArguments="x:Boolean" Name="isLoginSuccess" />
@@ -122,35 +122,47 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="Check isPageloaded and isLoginsuccess flag for successful or failed login&#xA;Open SDMS browser.&#xA;Enter username and password&#xA;click login" DisplayName="Try Catch for Retry Login" sap:VirtualizedContainerService.HintSize="960,2892.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Check isPageloaded and isLoginsuccess flag for successful or failed login&#xA;Open SDMS browser.&#xA;Enter username and password&#xA;click login" DisplayName="Try Catch for Retry Login" sap:VirtualizedContainerService.HintSize="960,3000" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:RetryScope sap2010:Annotation.AnnotationText="Check isPageloaded and isLoginsuccess flag for successful or failed login" DisplayName="Check SDMS Page" sap:VirtualizedContainerService.HintSize="923.2,2587.2" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[in_RetryValue]">
+        <ui:RetryScope sap2010:Annotation.AnnotationText="Check isPageloaded and isLoginsuccess flag for successful or failed login" DisplayName="Check SDMS Page" sap:VirtualizedContainerService.HintSize="923.2,2694.4" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[in_RetryValue]">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
-              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="881.6,2256.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="881.6,2364" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" sap2010:Annotation.AnnotationText="Open SDMS browser.&#xA;Enter username and password&#xA;click login" BrowserType="Chrome" DisplayName="Open Browser: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="840,2164" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_SdmsTab]" Url="[in_SdmsURL]">
+                <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" sap2010:Annotation.AnnotationText="Open SDMS browser.&#xA;Enter username and password&#xA;click login" BrowserType="Chrome" DisplayName="Open Browser: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="840,2271.2" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[out_SdmsTab]" Url="[in_SdmsURL]">
                   <ui:OpenBrowser.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="806.4,1961.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="806.4,2108.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize SDMS Tab" sap:VirtualizedContainerService.HintSize="764.8,22.4" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
+                        <ui:Activate DelayBefore="{x:Null}" DelayMS="{x:Null}" ContinueOnError="True" DisplayName="Activate browser" sap:VirtualizedContainerService.HintSize="764.8,107.2" sap2010:WorkflowViewState.IdRef="Activate_1">
+                          <ui:Activate.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="250e26d5-37a2-4ec5-a71f-2519fe07a96a" InformativeScreenshot="34ad20ebc0a7617787c24dd3addfd201" Selector="&lt;webctrl id='LoginForm_loginId' tag='INPUT' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Activate.Target>
+                        </ui:Activate>
                         <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click on Restore popup" sap:VirtualizedContainerService.HintSize="764.8,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
@@ -290,27 +302,13 @@
                               </Sequence>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Check Login Success" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SDMS\CheckLoginSuccess.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExcpCredFail">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcpCredFail" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExcpOther">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExcpOther" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isLoginSuccess">
-                                    <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="isLoginSuccess" />
-                                  </OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_LogExceptionMsg">
-                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="LogExceptionMsg" />
-                                  </OutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_TimeOut">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TimeOut" />
-                                  </InArgument>
-                                  <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_UiSdmsPageTab">
-                                    <VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="out_SdmsTab" />
-                                  </InOutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Timeout2">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TimeOut2" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExcpCredFail">[in_ExcpCredFail]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_ExcpOther">[in_ExcpOther]</InArgument>
+                                  <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isLoginSuccess">[isLoginSuccess]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_LogExceptionMsg">[LogExceptionMsg]</OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_TimeOut">[in_TimeOut]</InArgument>
+                                  <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_UiSdmsPageTab">[out_SdmsTab]</InOutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Timeout2">[in_TimeOut2]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>

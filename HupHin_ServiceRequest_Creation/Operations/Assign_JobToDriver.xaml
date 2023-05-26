@@ -14,7 +14,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1186.4,3122.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1186.4,5228.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Assign_JobToDriver_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -55,7 +55,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="49">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -106,20 +106,20 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Assign_JobToDriver" sap:VirtualizedContainerService.HintSize="1196.8,3057.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Assign_JobToDriver" sap:VirtualizedContainerService.HintSize="1196.8,5164" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1155.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Assigning JOb to driver&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="SDMS Attach Browser" sap:VirtualizedContainerService.HintSize="1155.2,2832" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_SdmsTab]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="SDMS Attach Browser" sap:VirtualizedContainerService.HintSize="1155.2,4938.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[io_SdmsTab]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,2723.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1121.6,4829.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="ExcpMsg" />
               <Variable x:TypeArguments="x:Boolean" Name="IsAssetFound" />
@@ -193,30 +193,66 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="2000" DisplayName="Enter Vehicle Number" sap:VirtualizedContainerService.HintSize="1080,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_VehNumber]">
-              <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7a064a3b-a5c2-48b4-983b-33e3668e5cfc" InformativeScreenshot="85554f9cbf7fa9e10eb7b734ea2eec8d" Selector="&lt;webctrl aria-role='textbox' tag='INPUT' type='search' /&gt;" WaitForReady="COMPLETE">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                </ui:Target>
-              </ui:TypeInto.Target>
-            </ui:TypeInto>
-            <ui:UiElementExists DisplayName="Check Asset found or not" Exists="[IsAssetFound]" sap:VirtualizedContainerService.HintSize="1080,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-              <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d2a72a96-cb48-454c-be4a-b76117bd4382" InformativeScreenshot="607be211b5164757d92d5f3035702975" Selector="[string.Format(&quot;&lt;webctrl aria-role='treeitem' tag='LI' innertext='{0}*' /&gt;&quot;, in_VehNumber)]">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:UiElementExists.Target>
-            </ui:UiElementExists>
-            <If Condition="[IsAssetFound]" DisplayName="If Asset Found or not" sap:VirtualizedContainerService.HintSize="1080,1907.2" sap2010:WorkflowViewState.IdRef="If_2">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1080,726.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch.Try>
+                <ui:RetryScope DisplayName="Retry Scope Type vehicle number" sap:VirtualizedContainerService.HintSize="416.8,495.2" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[CInt(in_Config(&quot;RetryForCustomerName&quot;))]">
+                  <ui:RetryScope.ActivityBody>
+                    <ActivityAction>
+                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="375.2,228" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayBefore="10000" DisplayName="Enter Vehicle Number" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_VehNumber]">
+                          <ui:TypeInto.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7a064a3b-a5c2-48b4-983b-33e3668e5cfc" InformativeScreenshot="85554f9cbf7fa9e10eb7b734ea2eec8d" Selector="&lt;webctrl aria-role='textbox' tag='INPUT' type='search' /&gt;" WaitForReady="COMPLETE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:TypeInto.Target>
+                        </ui:TypeInto>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:RetryScope.ActivityBody>
+                  <ui:RetryScope.Condition>
+                    <ActivityFunc x:TypeArguments="x:Boolean">
+                      <ui:UiElementExists DisplayName="Check Asset found or not" Exists="[IsAssetFound]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d2a72a96-cb48-454c-be4a-b76117bd4382" InformativeScreenshot="607be211b5164757d92d5f3035702975" Selector="[string.Format(&quot;&lt;webctrl aria-role='treeitem' tag='LI' innertext='{0}*' /&gt;&quot;, in_VehNumber)]" TimeoutMS="[Cint(in_Config(&quot;Timeout1&quot;).ToString)]" WaitForReady="COMPLETE" />
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                    </ActivityFunc>
+                  </ui:RetryScope.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:RetryScope>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;Vehicle number not found&quot;]" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <If Condition="[IsAssetFound]" DisplayName="If Asset Found or not" sap:VirtualizedContainerService.HintSize="1080,3569.6" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence DisplayName="Vehicle Number Found" sap:VirtualizedContainerService.HintSize="836,1748" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Vehicle Number Found" sap:VirtualizedContainerService.HintSize="836,3410.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="IsDriveFound" />
                   </Sequence.Variables>
@@ -226,14 +262,17 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Get Job Number And Assign Driver" sap:VirtualizedContainerService.HintSize="794.4,68.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence DisplayName="Get Job Number And Assign Driver" sap:VirtualizedContainerService.HintSize="794.4,1731.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="IsEditButton" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Vehicle" sap:VirtualizedContainerService.HintSize="347.2,86.4" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Vehicle" sap:VirtualizedContainerService.HintSize="483.2,86.4" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -255,14 +294,14 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Operations\Check_IsCurrentDate_Correct.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="347.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Operations\Check_IsCurrentDate_Correct.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Operations\Check_IsCurrentDate_Correct.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Operations\Check_IsCurrentDate_Correct.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InOutArgument x:TypeArguments="ui:Browser" x:Key="in_SdmsTab">[io_SdmsTab]</InOutArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_DateValue">[in_DateValue]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="in_ExcpMsgDateNotFound">[in_ExcpMsgDateNotFound]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
-                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Page down" sap:VirtualizedContainerService.HintSize="347.2,154.4" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Page down" sap:VirtualizedContainerService.HintSize="483.2,154.4" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="pgdn" KeyModifiers="None" SpecialKey="True">
                       <ui:SendHotkey.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="da19cbe3-fb8e-48e7-b6e6-3436075ee0d8" InformativeScreenshot="b21dae4dcfa0ae8d07d3f07a14a8df8e" Selector="&lt;webctrl tag='H4' aaname='Select Asset(s)' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -274,7 +313,34 @@
                         </ui:Target>
                       </ui:SendHotkey.Target>
                     </ui:SendHotkey>
-                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Job" sap:VirtualizedContainerService.HintSize="347.2,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:UiElementExists DisplayName="Element Exists edit button" Exists="[IsEditButton]" sap:VirtualizedContainerService.HintSize="483.2,86.4" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6db4f9fe-1c82-4553-b591-5f9372b17f50" Selector="&lt;webctrl id='appContainer' tag='DIV' /&gt;&lt;webctrl aaname='O' tag='SPAN' class='label job-status-o' /&gt;" TimeoutMS="[Cint(in_Config(&quot;Timeout1&quot;).ToString)]" WaitForReady="COMPLETE" />
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[IsEditButton=False]" DisplayName="If Edit button found" sap:VirtualizedContainerService.HintSize="483.2,436.8" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="[&quot;Edit button not found while assigning driver&quot;]" />
+                          <Throw Exception="[New BusinessRuleException(in_Config(&quot;ExcpMsg_EditButton&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Job" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -296,7 +362,7 @@
                         </ui:Target>
                       </ui:Click.Target>
                     </ui:Click>
-                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Job No" sap:VirtualizedContainerService.HintSize="347.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Job No" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
                       <ui:GetValue.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7eaff8a5-73b2-4e7f-85dc-45ca5bc6dbae" InformativeScreenshot="85da8380527a7f9dc8fa9f9028630d1f" Selector="&lt;webctrl id='holderJobNo' tag='DIV' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -311,8 +377,8 @@
                         <OutArgument x:TypeArguments="x:String">[out_JobNumber]</OutArgument>
                       </ui:GetValue.Value>
                     </ui:GetValue>
-                    <ui:LogMessage DisplayName="Log Job Number" sap:VirtualizedContainerService.HintSize="347.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Job Number:&quot;+ out_JobNumber]" />
-                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Need to do Page Down" sap:VirtualizedContainerService.HintSize="347.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                    <ui:LogMessage DisplayName="Log Job Number" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Job Number:&quot;+ out_JobNumber]" />
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Need to do Page Down" sap:VirtualizedContainerService.HintSize="483.2,133.6" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
                       <ui:SendHotkey.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="c5ea3f86-5f36-430d-bacd-d56a3a7030a8">
                           <ui:Target.TimeoutMS>
@@ -364,7 +430,7 @@
                                   </ui:Target>
                                 </ui:Click.Target>
                               </ui:Click>
-                              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Driver Name" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_DriverName]">
+                              <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DelayMS="3000" DisplayName="Type Driver Name" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_DriverName]">
                                 <ui:TypeInto.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="13ca136b-1451-438f-a3ad-51cb44dfb607" InformativeScreenshot="47802ae923f5310ae804cf7d9f0a9155" Selector="&lt;webctrl aria-role='textbox' parentid='updateJobScheduleModal' tag='INPUT' type='search' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -383,11 +449,7 @@
                           <ActivityFunc x:TypeArguments="x:Boolean">
                             <ui:UiElementExists DisplayName="Check Driver Exist" Exists="[IsDriveFound]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                               <ui:UiElementExists.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="661c6a95-3881-46ce-8542-c0be44b43ca8" InformativeScreenshot="28bb0358cac95f165f281fb235ba9ab1" Selector="[string.Format(&quot;&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;&lt;webctrl aaname=' {0}' tag='SPAN' casesensitive:aaname='false' /&gt;&quot;, in_DriverName)]" TimeoutMS="[in_Timeout]">
-                                  <ui:Target.WaitForReady>
-                                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                                  </ui:Target.WaitForReady>
-                                </ui:Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="661c6a95-3881-46ce-8542-c0be44b43ca8" InformativeScreenshot="28bb0358cac95f165f281fb235ba9ab1" Selector="[string.Format(&quot;&lt;webctrl aaname=' {0}' tag='SPAN' casesensitive:aaname='false' /&gt;&quot;, in_DriverName)]" TimeoutMS="[in_Timeout]" WaitForReady="COMPLETE" />
                               </ui:UiElementExists.Target>
                             </ui:UiElementExists>
                           </ActivityFunc>
@@ -443,13 +505,10 @@
                             </ui:CursorPosition>
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9f5a884-a221-4569-bb2b-2f37e9fda6ea" Selector="[string.Format(&quot;&lt;webctrl aaname=' {0}' tag='SPAN' casesensitive:aaname='false' /&gt;&quot;, in_DriverName)]">
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b9f5a884-a221-4569-bb2b-2f37e9fda6ea" Selector="[string.Format(&quot;&lt;webctrl aaname=' {0}' tag='SPAN' casesensitive:aaname='false' /&gt;&quot;, in_DriverName)]" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
                                 <InArgument x:TypeArguments="x:Int32" />
                               </ui:Target.TimeoutMS>
-                              <ui:Target.WaitForReady>
-                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                              </ui:Target.WaitForReady>
                             </ui:Target>
                           </ui:Click.Target>
                         </ui:Click>
@@ -527,16 +586,16 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Vehicle Missing" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Could not find vehice in asset field&quot;]" />
-                  <Assign DisplayName="Exception Msg" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <ui:LogMessage DisplayName="Log Vehicle Missing" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Could not find vehice in asset field&quot;]" />
+                  <Assign DisplayName="Exception Msg" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[ExcpMsg]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:String">[in_ExcpVehMissing+Environment.NewLine+in_VehNumber.ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[in_ExcpVehMissing+" "+in_VehNumber.ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Throw DisplayName="Throw Vehicle not found" Exception="[New BusinessRuleException(ExcpMsg)]" sap:VirtualizedContainerService.HintSize="338,97" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw DisplayName="Throw Vehicle not found" Exception="[New BusinessRuleException(ExcpMsg)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Else>
             </If>
