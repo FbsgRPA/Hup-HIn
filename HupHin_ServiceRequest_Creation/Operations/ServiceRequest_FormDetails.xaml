@@ -12,7 +12,7 @@
     <x:Property Name="in_Term" Type="InArgument(x:String)" />
     <x:Property Name="in_DateToProcess" Type="InArgument(s:DateTime)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>928.8,2549.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1236.8,2549.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -106,28 +106,28 @@
       <AssemblyReference>System.Data.Common</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Service Request Form Details" sap:VirtualizedContainerService.HintSize="736,2484.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence DisplayName="Service Request Form Details" sap:VirtualizedContainerService.HintSize="1247.2,2484.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Service Request Form" sap:VirtualizedContainerService.HintSize="694.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter service request form details&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="694.4,2259.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6820a81c14897ab1d6d01da65c4c8b9e" UiBrowser="[io_SdmsTab]">
+    <ui:LogMessage DisplayName="Log Service Request Form" sap:VirtualizedContainerService.HintSize="1205.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter service request form details&quot;]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="1205.6,2259.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6820a81c14897ab1d6d01da65c4c8b9e" UiBrowser="[io_SdmsTab]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="660.8,2112" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1172,2112" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type Start Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="619.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_StartHour+&quot;:&quot;+in_StartSec]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type Start Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="1130.4,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_StartHour+&quot;:&quot;+in_StartSec]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d34aa821-26d0-423c-9ab6-212356f7e7c3" InformativeScreenshot="70ebd13dd4b1e0eeaea0226e7e81da1f" Selector="&lt;webctrl id='ServiceRequest_scheduled_start_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -136,12 +136,12 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <If Condition="[in_Term.Equals(&quot;Daily&quot;)]" DisplayName="If Term is Monthly" sap:VirtualizedContainerService.HintSize="619.2,687.2" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[in_Term.Equals(&quot;Daily&quot;)]" DisplayName="If Term is Monthly" sap:VirtualizedContainerService.HintSize="1130.4,687.2" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <If Condition="[in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;PM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;)]" DisplayName="If End time has AM in it" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+                <If Condition="[(in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;PM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;)) Or (in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;))]" DisplayName="If End time has AM in it" sap:VirtualizedContainerService.HintSize="711.2,294.4" sap2010:WorkflowViewState.IdRef="If_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>

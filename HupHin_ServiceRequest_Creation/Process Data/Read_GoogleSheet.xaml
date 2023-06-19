@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>928.8,4115.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1152,5503.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_GoogleSheet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -126,7 +126,7 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="779.2,4050.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_GoogleSheet" sap:VirtualizedContainerService.HintSize="1162.4,5438.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FileName" />
       <Variable x:TypeArguments="gadvd:File[]" Name="ArrCurYrFiles" />
@@ -139,7 +139,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="737.6,176.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="If User wants to process data for other date than today then user has to set value in config as format &quot;mm/dd/yyyy&quot;&#xA;Else today's Date will be taken as default value" Condition="[in_Config(&quot;ProcessDate&quot;).ToString.Trim.ToLower.Contains(&quot;today&quot;)]" DisplayName="If other date Data to process" sap:VirtualizedContainerService.HintSize="1120.8,176.8" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -206,8 +206,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="737.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="737.6,3608" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Reading Google Sheet" sap:VirtualizedContainerService.HintSize="1120.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading Google sheet for date: &quot;+out_DateToProcess.ToString]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Using gsuit to read google sheet data&#xA;Check daily sales folder is available on google drive or not. If yes check for current month file and read current month sheet data to datatable" DisplayName="Check for any exception accessing gsuit" sap:VirtualizedContainerService.HintSize="1120.8,4996" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,7 +216,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="700.8,3293.6" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="UiPath" Password="notasecret" Services="Unselected">
+        <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[in_Config(&quot;Client_ID&quot;).ToString.Trim]" CredentialSecret="[in_Config(&quot;Client_Secret&quot;).ToString.Trim]" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope: Google Sheet" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="1084,4697.6" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" OAuthClient="UiPath" Password="notasecret" Services="Unselected">
           <uga:GSuiteApplicationScope.AuthenticationScopes>
             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
               <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive</InArgument>
@@ -227,12 +227,13 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="667.2,3181.6" sap2010:WorkflowViewState.IdRef="Sequence_34">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1050.4,4585.6" sap2010:WorkflowViewState.IdRef="Sequence_34">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="MonthName" />
                   <Variable x:TypeArguments="x:Int32" Name="YearInfo" />
                   <Variable x:TypeArguments="x:String" Name="SalesFolderId" />
                   <Variable x:TypeArguments="gadvd:File[]" Name="ArrSalesFiles" />
+                  <Variable x:TypeArguments="gadvd:File[]" Name="AllFileInDailySales" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -240,7 +241,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign sap2010:Annotation.AnnotationText="From mentioned date get month and year to read file for the mentioned date" DisplayName="Get Month and Year" sap:VirtualizedContainerService.HintSize="625.6,112.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign sap2010:Annotation.AnnotationText="From mentioned date get month and year to read file for the mentioned date" DisplayName="Get Month and Year" sap:VirtualizedContainerService.HintSize="1008.8,112.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -277,21 +278,95 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:MultipleAssign>
-                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" Result="{x:Null}" sap2010:Annotation.AnnotationText="Get id of parent folder in this case it is &quot;Daily Sales&quot;" AuthScopesInvalid="False" DisplayName="Get Sales folder ID" FirstResultId="[SalesFolderId]" sap:VirtualizedContainerService.HintSize="625.6,112" sap2010:WorkflowViewState.IdRef="FindFiles_4" MaxResults="50" SearchExpression="[&quot;name = '&quot;+in_Config(&quot;GoogleFolder&quot;).ToString+&quot;'&quot;]" SupportsTeamDrives="False">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1008.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Google folder name; &quot;+in_Config(&quot;GoogleFolder&quot;).ToString]" />
+                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" sap2010:Annotation.AnnotationText="Get id of parent folder in this case it is &quot;Daily Sales&quot;" AuthScopesInvalid="False" DisplayName="Get Sales folder ID" FirstResultId="[SalesFolderId]" sap:VirtualizedContainerService.HintSize="1008.8,112" sap2010:WorkflowViewState.IdRef="FindFiles_4" MaxResults="50" Result="[AllFileInDailySales]" SearchExpression="[&quot;name='&quot;+in_Config(&quot;GoogleFolder&quot;).ToString+&quot;'&quot;]" SupportsTeamDrives="False">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uga:FindFiles>
-                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Get all files from sales folder &#xA;" AuthScopesInvalid="False" DisplayName="Get files inside Sales folder" sap:VirtualizedContainerService.HintSize="625.6,124.8" sap2010:WorkflowViewState.IdRef="FindFiles_5" MaxResults="50" Result="[ArrSalesFiles]" SearchExpression="[&quot;'&quot; + SalesFolderId + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
+                <ui:ForEach x:TypeArguments="gadvd:File" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1008.8,621.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[AllFileInDailySales]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="gadvd:File">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="gadvd:File" Name="currentItem" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,496.8" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[currentItem.Id.Equals(in_Config(&quot;DailySaleFolder_ID&quot;).ToString)]" DisplayName="If Current Item is sales" sap:VirtualizedContainerService.HintSize="483.2,404" sap2010:WorkflowViewState.IdRef="If_14">
+                          <If.Then>
+                            <Sequence DisplayName="If Daily sales id" sap:VirtualizedContainerService.HintSize="304,215.2" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[SalesFolderId]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[currentItem.Id]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:Break sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Break_1" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                </ui:ForEach>
+                <If Condition="[String.IsNullOrEmpty(SalesFolderId)]" DisplayName="If Sales folder id not found" sap:VirtualizedContainerService.HintSize="1008.8,436.8" sap2010:WorkflowViewState.IdRef="If_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[&quot;Daily Sales folder is missing from google drive&quot;]" />
+                      <Throw DisplayName="Throw Daily Sales folder missing" Exception="[New SystemException(in_Config(&quot;ExcpMsg_DailySalesFoldMissing&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_10" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Get all files from sales folder &#xA;" AuthScopesInvalid="False" DisplayName="Get files inside Sales folder" sap:VirtualizedContainerService.HintSize="1008.8,124.8" sap2010:WorkflowViewState.IdRef="FindFiles_5" MaxResults="50" Result="[ArrSalesFiles]" SearchExpression="[&quot;'&quot; + SalesFolderId + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </uga:FindFiles>
-                <Assign DisplayName="Get Current Year Matching Folder" sap:VirtualizedContainerService.HintSize="625.6,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign DisplayName="Get Current Year Matching Folder" sap:VirtualizedContainerService.HintSize="1008.8,60" sap2010:WorkflowViewState.IdRef="Assign_13">
                   <Assign.To>
                     <OutArgument x:TypeArguments="gadvd:File[]">[ArrSalesFiles]</OutArgument>
                   </Assign.To>
@@ -299,7 +374,7 @@
                     <InArgument x:TypeArguments="gadvd:File[]">[(From p In ArrSalesFiles.AsEnumerable Where p.Name.Equals(YearInfo.ToString) Select p).ToArray]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <If sap2010:Annotation.AnnotationText="Check Current Year folder found in Dily Sales folder" Condition="[ArrSalesFiles.Count&gt;0]" DisplayName="Check Current Year Folder" sap:VirtualizedContainerService.HintSize="626,103" sap2010:WorkflowViewState.IdRef="If_11">
+                <If sap2010:Annotation.AnnotationText="Check Current Year folder found in Dily Sales folder" Condition="[ArrSalesFiles.Count&gt;0]" DisplayName="Check Current Year Folder" sap:VirtualizedContainerService.HintSize="723.2,659.2" sap2010:WorkflowViewState.IdRef="If_11">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -308,7 +383,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap2010:Annotation.AnnotationText="Current year folder found. Get all files from current year folder" DisplayName="Get Current year folder Files" sap:VirtualizedContainerService.HintSize="400,524" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <Sequence sap2010:Annotation.AnnotationText="Current year folder found. Get all files from current year folder" DisplayName="Get Current year folder Files" sap:VirtualizedContainerService.HintSize="375.2,468.8" sap2010:WorkflowViewState.IdRef="Sequence_24">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -316,15 +391,15 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message: Current year Folder" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Found current year folder :&quot;+ArrSalesFiles(0).Name]" />
-                      <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Extract all files from current year folder " AuthScopesInvalid="False" DisplayName="Get files from Current year folder" sap:VirtualizedContainerService.HintSize="338,120" sap2010:WorkflowViewState.IdRef="FindFiles_6" MaxResults="50" Result="[ArrCurYrFiles]" SearchExpression="[&quot;'&quot; + ArrSalesFiles(0).Id + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
+                      <ui:LogMessage DisplayName="Log Message: Current year Folder" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Found current year folder :&quot;+ArrSalesFiles(0).Name]" />
+                      <uga:FindFiles ContinueOnError="{x:Null}" DriveTarget="{x:Null}" FirstResultId="{x:Null}" sap2010:Annotation.AnnotationText="Extract all files from current year folder " AuthScopesInvalid="False" DisplayName="Get files from Current year folder" sap:VirtualizedContainerService.HintSize="333.6,112" sap2010:WorkflowViewState.IdRef="FindFiles_6" MaxResults="50" Result="[ArrCurYrFiles]" SearchExpression="[&quot;'&quot; + ArrSalesFiles(0).Id + &quot;' in parents and name contains '*'&quot;]" SupportsTeamDrives="False">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </uga:FindFiles>
-                      <Assign DisplayName="Assign Folder Missing to false" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign DisplayName="Assign Folder Missing to false" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[IsFolderMissing]</OutArgument>
                         </Assign.To>
@@ -335,14 +410,14 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Folder Is missing" sap:VirtualizedContainerService.HintSize="400,192" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <Sequence DisplayName="Folder Is missing" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Folder Missing" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign DisplayName="Folder Missing" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[IsFolderMissing]</OutArgument>
                         </Assign.To>
@@ -353,7 +428,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <If sap2010:Annotation.AnnotationText="Isfoldermissing variable is used to check whether current year folder is found in daily sales folder" Condition="[IsFolderMissing=True]" DisplayName="Check folder found or not" sap:VirtualizedContainerService.HintSize="626,1730" sap2010:WorkflowViewState.IdRef="If_9">
+                <If sap2010:Annotation.AnnotationText="Isfoldermissing variable is used to check whether current year folder is found in daily sales folder" Condition="[IsFolderMissing=True]" DisplayName="Check folder found or not" sap:VirtualizedContainerService.HintSize="1008.8,1306.4" sap2010:WorkflowViewState.IdRef="If_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -362,7 +437,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap2010:Annotation.AnnotationText="Throw exception beacuse current year folder is missing from drive" DisplayName="Throw folder not found exception" sap:VirtualizedContainerService.HintSize="400,121" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                    <Sequence sap2010:Annotation.AnnotationText="Throw exception beacuse current year folder is missing from drive" DisplayName="Throw folder not found exception" sap:VirtualizedContainerService.HintSize="200,128.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -375,14 +450,14 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap2010:Annotation.AnnotationText="Current year folder found. Iterate through all files to read current month file only" DisplayName="Folder Found" sap:VirtualizedContainerService.HintSize="544,1415" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                    <Sequence sap2010:Annotation.AnnotationText="Current year folder found. Iterate through all files to read current month file only" DisplayName="Folder Found" sap:VirtualizedContainerService.HintSize="764.8,1116" sap2010:WorkflowViewState.IdRef="Sequence_31">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Get Files from  Current Year Folder" sap:VirtualizedContainerService.HintSize="482,70" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign DisplayName="Get Files from  Current Year Folder" sap:VirtualizedContainerService.HintSize="723.2,60" sap2010:WorkflowViewState.IdRef="Assign_14">
                         <Assign.To>
                           <OutArgument x:TypeArguments="gadvd:File[]">[ArrCurYrFiles]</OutArgument>
                         </Assign.To>
@@ -390,7 +465,7 @@
                           <InArgument x:TypeArguments="gadvd:File[]">[(From p In ArrCurYrFiles.AsEnumerable Where p.Name.ToLower.Contains(MonthName.ToLower) Select p).ToArray]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <If sap2010:Annotation.AnnotationText="Check if current month file is found in current year folder" Condition="[ArrCurYrFiles.Count&gt;0]" DisplayName="Check if current month file is present" sap:VirtualizedContainerService.HintSize="482,1152" sap2010:WorkflowViewState.IdRef="If_12">
+                      <If sap2010:Annotation.AnnotationText="Check if current month file is found in current year folder" Condition="[ArrCurYrFiles.Count&gt;0]" DisplayName="Check if current month file is present" sap:VirtualizedContainerService.HintSize="723.2,892" sap2010:WorkflowViewState.IdRef="If_12">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -399,7 +474,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence sap2010:Annotation.AnnotationText="Current month file found" DisplayName="Current month file found" sap:VirtualizedContainerService.HintSize="400,766" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                          <Sequence sap2010:Annotation.AnnotationText="Current month file found" DisplayName="Current month file found" sap:VirtualizedContainerService.HintSize="375.2,701.6" sap2010:WorkflowViewState.IdRef="Sequence_40">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -407,8 +482,8 @@
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message: Current Month file" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Current month file found :&quot;+ArrCurYrFiles(0).Name]" />
-                            <Assign DisplayName="Get spreadsheet ID" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_15">
+                            <ui:LogMessage DisplayName="Log Message: Current Month file" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Current month file found :&quot;+ArrCurYrFiles(0).Name]" />
+                            <Assign DisplayName="Get spreadsheet ID" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_15">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[out_SpreadsheetID]</OutArgument>
                               </Assign.To>
@@ -416,7 +491,7 @@
                                 <InArgument x:TypeArguments="x:String">[ArrCurYrFiles(0).Id]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <uga:ReadRange ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Range="{x:Null}" sap2010:Annotation.AnnotationText="Read current month file using sheet id" AuthScopesInvalid="False" DisplayName="Read Google sheet" sap:VirtualizedContainerService.HintSize="338,252" sap2010:WorkflowViewState.IdRef="ReadRange_4" IncludeHeaders="True" Result="[out_dt_GoogleShetData]" SheetName="Sheet1" SpreadsheetId="[ArrCurYrFiles(0).Id]">
+                            <uga:ReadRange ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Range="{x:Null}" sap2010:Annotation.AnnotationText="Read current month file using sheet id" AuthScopesInvalid="False" DisplayName="Read Google sheet" sap:VirtualizedContainerService.HintSize="333.6,244.8" sap2010:WorkflowViewState.IdRef="ReadRange_4" IncludeHeaders="True" Result="[out_dt_GoogleShetData]" SheetName="Sheet1" SpreadsheetId="[ArrCurYrFiles(0).Id]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -425,7 +500,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </uga:ReadRange>
-                            <Assign DisplayName="Assign File missing" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_16">
+                            <Assign DisplayName="Assign File missing" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_16">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[IsFileMissing]</OutArgument>
                               </Assign.To>
@@ -436,13 +511,13 @@
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence DisplayName="Skip Other months file" sap:VirtualizedContainerService.HintSize="400,192" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                          <Sequence DisplayName="Skip Other months file" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_41">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="File missing" sap:VirtualizedContainerService.HintSize="338,70" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign DisplayName="File missing" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_17">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[IsFileMissing]</OutArgument>
                               </Assign.To>
@@ -501,7 +576,7 @@
         </uga:GSuiteApplicationScope>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="704,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1087.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -523,7 +598,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="704,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1087.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>

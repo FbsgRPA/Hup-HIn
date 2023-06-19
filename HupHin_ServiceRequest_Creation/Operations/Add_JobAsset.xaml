@@ -9,7 +9,7 @@
     <x:Property Name="in_ExcpVehMissing" Type="InArgument(x:String)" />
     <x:Property Name="in_ExcpItemGrpMissing" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1421.6,3485.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1421.6,3867.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -101,20 +101,20 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Add Job Asset " sap:VirtualizedContainerService.HintSize="1432,3420.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="Add Job Asset " sap:VirtualizedContainerService.HintSize="1432,3802.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Add Job Asset" sap:VirtualizedContainerService.HintSize="1390.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding Asset&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="1390.4,3195.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[in_SdmsTab]">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="1390.4,3576.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[in_SdmsTab]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1356.8,3086.4" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1356.8,3468" sap2010:WorkflowViewState.IdRef="Sequence_24">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Selector" />
               <Variable x:TypeArguments="x:Boolean" Name="IsJobTypePresent" />
@@ -168,9 +168,9 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[IsItemGroup]" DisplayName="Check Item group present" sap:VirtualizedContainerService.HintSize="1315.2,2452" sap2010:WorkflowViewState.IdRef="If_5">
+            <If Condition="[IsItemGroup]" DisplayName="Check Item group present" sap:VirtualizedContainerService.HintSize="1315.2,2833.6" sap2010:WorkflowViewState.IdRef="If_5">
               <If.Then>
-                <Sequence DisplayName="Item group found" sap:VirtualizedContainerService.HintSize="1029.6,2292.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <Sequence DisplayName="Item group found" sap:VirtualizedContainerService.HintSize="1029.6,2674.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -270,7 +270,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:UiElementExists>
-                  <If Condition="[IsVehAvailable]" DisplayName="If Vehicle Number Present" sap:VirtualizedContainerService.HintSize="988,1158.4" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[IsVehAvailable]" DisplayName="If Vehicle Number Present" sap:VirtualizedContainerService.HintSize="988,1540" sap2010:WorkflowViewState.IdRef="If_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -278,7 +278,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Vehicle Found" sap:VirtualizedContainerService.HintSize="702.4,999.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <Sequence DisplayName="Vehicle Found" sap:VirtualizedContainerService.HintSize="702.4,1380.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -319,6 +319,40 @@
                             </ui:Target>
                           </ui:Click.Target>
                         </ui:Click>
+                        <If Condition="[in_Type.Contains(&quot;&lt;&quot;)]" DisplayName="Job type has &lt;" sap:VirtualizedContainerService.HintSize="660.8,341.6" sap2010:WorkflowViewState.IdRef="If_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Replace &amp; to make dynamic selector" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Replace &amp;" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[in_Type]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[in_Type.Replace("&lt;","&amp;lt;")]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="No &amp; Found" sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
                         <ui:UiElementExists DisplayName="Check if  Job Type in dropdown list" Exists="[IsJobTypePresent]" sap:VirtualizedContainerService.HintSize="660.8,86.4" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
                           <ui:UiElementExists.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="40d27433-c27b-4b46-8b02-2e18099590d7" Selector="[string.Format(&quot;&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;&lt;webctrl aria-role='treeitem' tag='LI' aaname='{0}' casesensitive:aaname='false' /&gt;&quot;, in_Type)]" TimeoutMS="[Cint(in_TimeOut)]">

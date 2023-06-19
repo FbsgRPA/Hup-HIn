@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>928.8,688.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>877.6,688.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_Notification_Email_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,7 +119,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Exception Notification" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sending Exception notification&quot;]" />
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_Config(&quot;Excp_EmailBody&quot;).ToString+&quot;&lt;p style=color:red&gt;&lt;b&gt;&quot;+in_Exception.Message+&quot;&lt;/p&gt;&lt;/b&gt;&lt;br&gt;&quot;+in_Config(&quot;Bot_Signature&quot;).ToString]" Cc="[in_Config(&quot;Excp_emailCC&quot;).ToString]" DisplayName="Send Exception Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_Config(&quot;Excp_EmailSub&quot;).ToString]" To="[in_Config(&quot;Excp_EmailTo&quot;).ToString]">
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[in_Config(&quot;Excp_EmailBody&quot;).ToString+&quot;&lt;p style=color:red&gt;&lt;b&gt;&quot;+in_Exception.Message+&quot;&lt;/p&gt;&lt;/b&gt;&lt;br&gt;&quot;+in_Config(&quot;Bot_Signature&quot;).ToString]" Cc="[in_Config(&quot;EmailCC&quot;).ToString]" DisplayName="Send Exception Outlook Mail Message" sap:VirtualizedContainerService.HintSize="333.6,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_Config(&quot;Excp_EmailSub&quot;).ToString]" To="[in_Config(&quot;EmailTo&quot;).ToString]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendOutlookMail.Files>
