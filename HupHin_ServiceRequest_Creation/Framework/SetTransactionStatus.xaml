@@ -367,7 +367,7 @@
                                           <InArgument x:TypeArguments="x:String">[in_Config("Exception").ToString+in_TransactionItem("Cell Number").ToString]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Write Exception" sap:VirtualizedContainerService.HintSize="333.6,192.8" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="Sheet1" SpreadsheetId="[in_SpreadSheetID]" Value="[in_BusinessException.Message]" />
+                                      <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Write Exception" sap:VirtualizedContainerService.HintSize="333.6,192.8" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="[in_Config(&quot;SheetName&quot;).ToString.Trim]" SpreadsheetId="[in_SpreadSheetID]" Value="[in_BusinessException.Message]" />
                                     </Sequence>
                                   </ActivityAction>
                                 </uga:GSuiteApplicationScope.Body>

@@ -234,7 +234,7 @@
                   </Assign>
                   <TryCatch DisplayName="Try Catch Quota Exceed" sap:VirtualizedContainerService.HintSize="436.8,424" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <TryCatch.Try>
-                      <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Assign Record ID" sap:VirtualizedContainerService.HintSize="333.6,192.8" sap2010:WorkflowViewState.IdRef="WriteCell_4" IsInsideBatchUpdateScope="False" SheetName="Sheet1" SpreadsheetId="[in_SpreadSheetID]" Value="[RecordID.ToString]">
+                      <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Assign Record ID" sap:VirtualizedContainerService.HintSize="333.6,192.8" sap2010:WorkflowViewState.IdRef="WriteCell_4" IsInsideBatchUpdateScope="False" SheetName="[in_Config(&quot;SheetName&quot;).ToString.Trim]" SpreadsheetId="[in_SpreadSheetID]" Value="[RecordID.ToString]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -244,7 +244,7 @@
                       </uga:WriteCell>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -318,7 +318,7 @@
                       <InArgument x:TypeArguments="x:String">[in_Config("RecordId_Cell").ToString+in_TransactionItem("Cell Number").ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <uga:ReadCell CellValue="{x:Null}" ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="333.6,183.2" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Sheet1" SpreadsheetId="[in_SpreadSheetID]">
+                  <uga:ReadCell CellValue="{x:Null}" ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" AuthScopesInvalid="False" Cell="[CellNumber]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="333.6,183.2" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="[in_Config(&quot;SheetName&quot;).ToString.Trim]" SpreadsheetId="[in_SpreadSheetID]">
                     <uga:ReadCell.CellValueGeneric>
                       <OutArgument x:TypeArguments="x:String">[RecordID]</OutArgument>
                     </uga:ReadCell.CellValueGeneric>

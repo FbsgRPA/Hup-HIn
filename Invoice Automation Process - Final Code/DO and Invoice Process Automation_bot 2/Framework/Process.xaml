@@ -1,0 +1,369 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_ProcessType" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_TransactionNumber" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="io_IOExcelFilePathDaily" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_IOExcelFilePathConso" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_IOExcelFilePathMonthly" Type="InOutArgument(x:String)" />
+    <x:Property Name="out_InvoiceNumber" Type="OutArgument(x:String)" />
+    <x:Property Name="out_InvoiceFilePath" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_dt_TransactionItem" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="io_dt_VehicleTypeMap" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_dt_Sundays" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dt_PublicHolidays" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dt_BillingEntity" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>928.8,1013.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="96">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="86">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This sequence wll enter all the data into quickbooks application for all Daily, Consolidated and Monthyl scenarios. Quickbooks will generate the invoices and the PDF files will be merged." DisplayName="Process" sap:VirtualizedContainerService.HintSize="576.8,948.8" sap2010:WorkflowViewState.IdRef="Sequence_107">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="535.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:LogMessage DisplayName="Log Message Processing for" sap:VirtualizedContainerService.HintSize="535.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;Processing for: &quot;+ io_ProcessType.ToString]" />
+    <TryCatch DisplayName="Try Catch process" sap:VirtualizedContainerService.HintSize="535.2,414.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Processing steps for Daily process. Calculations are done in this step and entering the data to quickbooks" DisplayName="Switch to Select process" Expression="[io_ProcessType]" sap:VirtualizedContainerService.HintSize="496.8,184.8" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence x:Key="Daily" DisplayName="Daily processing" sap:VirtualizedContainerService.HintSize="434,836" sap2010:WorkflowViewState.IdRef="Sequence_102">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="QuotationFilePathDaily" />
+              <Variable x:TypeArguments="x:String" Name="InvoicePdfFolderPathDaily" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckInputDataAvailable workflow" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="Reusable Code\CheckInputDataAvailableSub.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType1">[io_ProcessType]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateInvoicePath workflow Daily" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Reusable Code\CreateInvoicePath.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfPath">[in_Config("InvoicePath").ToString]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoicePdfFolderPath">[InvoicePdfFolderPathDaily]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetQuotationFile workflow Daily" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Reusable Code\CheckQuotationFile.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_QuotationFilePath">[QuotationFilePathDaily]</OutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke QuickbooksProcess workflow Daily" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Quickbooks\QuickbooksProcess.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_DelayAfterShort">[Cint(in_Config("DelayAfterShort").ToString)]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QuotationFilePath">[QuotationFilePathDaily]</InArgument>
+                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber1">[io_TransactionNumber]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfFolderPath">[InvoicePdfFolderPathDaily]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceFilePath1">[out_InvoiceFilePath]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceNumber1">[out_InvoiceNumber]</OutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Sundays1">[in_dt_Sundays]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PublicHolidays1">[in_dt_PublicHolidays]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_VehicleTypeMap1">[io_dt_VehicleTypeMap]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MergeFiles workflow Daily" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Quickbooks\MergeFiles.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceNumber">[out_InvoiceNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFilePath">[out_InvoiceFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePath">[in_Config("InvoicePath").ToString]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType2">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+          <Sequence x:Key="Consolidated" DisplayName="Consolidated workflow" sap:VirtualizedContainerService.HintSize="434,836" sap2010:WorkflowViewState.IdRef="Sequence_100">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="QuotationFilePathConso" />
+              <Variable x:TypeArguments="x:String" Name="InvoicePdfFolderPathConso" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckInputDataAvailable workflow Consolidated" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Reusable Code\CheckInputDataAvailableSub.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType1">[io_ProcessType]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateDOFolder workflow Consolidated" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Reusable Code\CreateInvoicePath.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoicePdfFolderPath">[InvoicePdfFolderPathConso]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfPath">[in_Config("InvoicePath").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetQuotationFile workflow Consolidated" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Reusable Code\CheckQuotationFile.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_QuotationFilePath">[QuotationFilePathConso]</OutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke QuickbooksProcess workflow Consolidated" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Quickbooks\QuickbooksProcess.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_DelayAfterShort">[Cint(in_Config("DelayAfterShort").ToString)]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QuotationFilePath">[QuotationFilePathConso]</InArgument>
+                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber1">[io_TransactionNumber]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfFolderPath">[InvoicePdfFolderPathConso]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceFilePath1">[out_InvoiceFilePath]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceNumber1">[out_InvoiceNumber]</OutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Sundays1">[in_dt_Sundays]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PublicHolidays1">[in_dt_PublicHolidays]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_VehicleTypeMap1">[io_dt_VehicleTypeMap]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MergeFiles workflow Consolidated" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Quickbooks\MergeFiles.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceNumber">[out_InvoiceNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFilePath">[out_InvoiceFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePath">[in_Config("InvoicePath").ToString]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType2">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+          <Sequence x:Key="Monthly" DisplayName="Monthly workflow" sap:VirtualizedContainerService.HintSize="434,989" sap2010:WorkflowViewState.IdRef="Sequence_106">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="CurrentBillingEntity" />
+              <Variable x:TypeArguments="x:String" Name="QuotationFilePathMonthly" />
+              <Variable x:TypeArguments="x:String" Name="InvoicePdfFolderPathMonthly" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckInputDataAvailable workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="Reusable Code\CheckInputDataAvailableSub.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType1">[io_ProcessType]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateDOFolder workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Reusable Code\CreateInvoicePath.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoicePdfFolderPath">[InvoicePdfFolderPathMonthly]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfPath">[in_Config("InvoicePath").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke FindBillingEntity workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Quickbooks\FindBillingEntity.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_BillingEntity">[CurrentBillingEntity]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DefaultBusinessEntity">[in_Config("DefaultBusinessEntity").ToString]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_IOExcelFilePath">[io_IOExcelFilePathMonthly]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ProcessType">[io_ProcessType]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_BillingEntity1">[in_dt_BillingEntity]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem">[in_dt_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_TimeoutShort">[CInt( in_Config("TimeoutShort"))]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_HeavyEquipmentPath">[in_Config("HeavyEquipmentPath").ToString]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DefaultEntityPath">[in_Config("DefaultEntityPath").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetQuotationFile workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Reusable Code\CheckQuotationFileMonthly.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_QuotationFilePath">[QuotationFilePathMonthly]</OutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke QuickbooksProcess workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="Quickbooks\QuickbooksProcessMonthly.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:Int32" x:Key="in_DelayAfterShort">[Cint(in_Config("DelayAfterShort").ToString)]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QuotationFilePath">[QuotationFilePathMonthly]</InArgument>
+                <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber1">[io_TransactionNumber]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePdfFolderPath">[InvoicePdfFolderPathMonthly]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceNumber1">[out_InvoiceNumber]</OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_InvoiceFilePath1">[out_InvoiceFilePath]</OutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_VehicleTypeMap">[io_dt_VehicleTypeMap]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PublicHolidays">[in_dt_PublicHolidays]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Sundays">[in_dt_Sundays]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_BillingEntity">[CurrentBillingEntity]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_BillingEntityForHE">[in_Config("BillingEntityForHE").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Merge Files workflow Monthly" sap:VirtualizedContainerService.HintSize="372,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Quickbooks\MergeFilesMonthly.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceNumber">[out_InvoiceNumber]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFilePath">[out_InvoiceFilePath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_InvoicePath">[in_Config("InvoicePath").ToString]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType2">[io_ProcessType]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TransactionItem1">[in_dt_TransactionItem]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </Switch>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="501,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Sequence Process cactch" sap:VirtualizedContainerService.HintSize="400,268" sap2010:WorkflowViewState.IdRef="Sequence_108">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message for Process" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Error" Message="[&quot;Exception occured at &quot;+ exception.Message]" />
+              <Rethrow DisplayName="Rethrow Exception for Process" sap:VirtualizedContainerService.HintSize="338,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message Process sequence Ended" sap:VirtualizedContainerService.HintSize="535,92" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;Process sequence ended.&quot;]" />
+  </Sequence>
+</Activity>
