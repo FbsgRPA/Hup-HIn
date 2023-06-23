@@ -1,0 +1,425 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractInput" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_InputExcelFolderPathConso" Type="InArgument(x:String)" />
+    <x:Property Name="out_InputExcelFileConso" Type="OutArgument(x:String)" />
+    <x:Property Name="io_ProcessCounterConso" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="in_Config1" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_ProcessType" Type="InOutArgument(x:String)" />
+    <x:Property Name="out_InputConso" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_dt_MonthlyCustomer1" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>910,2883</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ExtractInput_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="47">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This .xaml will Extract the total records to process from SDMS web portal." DisplayName="Consolidated process" sap:VirtualizedContainerService.HintSize="920,2818" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="StartDate" />
+      <Variable x:TypeArguments="s:DateTime" Name="EndDate" />
+      <Variable x:TypeArguments="x:String" Name="ConvertedStartDate" />
+      <Variable x:TypeArguments="x:String" Name="ExcelFilenameConsolidated" />
+      <Variable x:TypeArguments="x:String" Name="ConvertedEndDate" />
+      <Variable x:TypeArguments="x:Int32" Name="RowCount" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch for Conso process" sap:VirtualizedContainerService.HintSize="858,2676" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="1133,3068" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Version="V2">
+          <uix:NApplicationCard.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do these steps #1" sap:VirtualizedContainerService.HintSize="1099,2829" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message - In Extract input sequence for Consolidated process" sap:VirtualizedContainerService.HintSize="1037,92" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;In Extract Sequence of Consolidated process.&quot;]" />
+                <Assign DisplayName="Assign row count" sap:VirtualizedContainerService.HintSize="1037,81" sap2010:WorkflowViewState.IdRef="Assign_31">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[RowCount]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Input to daily is true" sap:VirtualizedContainerService.HintSize="1037,81" sap2010:WorkflowViewState.IdRef="Assign_26">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_InputConso]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[String.IsNullOrEmpty( in_Config1(&quot;StartDateConsolidated&quot;).tostring) and  String.IsNullOrEmpty( in_Config1(&quot;EndDateConsolidated&quot;).tostring)]" DisplayName="If check if user has entered start date'" sap:VirtualizedContainerService.HintSize="1037,714" sap2010:WorkflowViewState.IdRef="If_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="assign current months start and end date" sap:VirtualizedContainerService.HintSize="496,555" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign Start date" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_18">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:DateTime">[StartDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:DateTime">[new System.DateTime(now.Year,now.Month,1).AddMonths(-1)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign End Date" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_19">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:DateTime">[EndDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:DateTime">[StartDate.AddMonths(1).AddDays(-1)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign Converted start date" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_20">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ConvertedStartDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[StartDate.ToString("dd/MM/yyyy")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign Converted end date" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_21">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ConvertedEndDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[EndDate.ToString("dd/MM/yyyy")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="User has entered start date" sap:VirtualizedContainerService.HintSize="496,445" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message - user entered start date" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;User has entered Start Date and End Date for Consolidated process in Config file. They are: &quot; +in_Config1(&quot;StartDateConsolidated&quot;).tostring+&quot; and &quot;+in_Config1(&quot;EndDateConsolidated&quot;).tostring +&quot; respectively.&quot;]" />
+                      <Assign DisplayName="Assign Start date to user choice" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_29">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ConvertedStartDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_Config1("StartDateConsolidated").tostring]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign End date to user choice" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_30">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ConvertedEndDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_Config1("EndDateConsolidated").tostring]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="0.3" DisplayName="Type Into 'Start Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1037,217" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Text="[ConvertedStartDate + &quot;[k(enter)]&quot;]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/deliveryOrder" DesignTimeRectangle="303, 276, 401, 34" ElementType="InputBox" FriendlyName="'28/01/2023'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Start Date' id='DeliveryOrderSearchForm_actualStartDate' parentid='yw1' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='Start Date' id='DeliveryOrderSearchForm_actualStartDate' parentid='yw1' type='text' class='grd-white form-control' /&gt;" Guid="5ca27dbf-d330-4ab1-9fd6-137dfa3d3bc6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZUAAAAmCAYAAAAMcgZUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT5SURBVHhe7d3PSxtpHMfx/SfnMiAEIVDMJRQqS4OwQchlZWkQ1oXmIPGwHtaCoUh6sOBGJLtIQNLijoccJFQiQsAOCCHlu8838zPJJFE6XtL3Cx7oMzNPnkkPzyfPMz/8SQAASAmhAgBIzViofHUf5PNVV07PHfn73/8oFAqFQkksmhOaF5obcWGo6A496EuvL8PhN38rAADTNCc0LzQ34sEShoomjh4AAMBjaW5ofgTCUNG0YYYCAHgKzQ3Nj0AYKrpGBgDAU8Xzg1ABAHwXQgUAkBpCBQCQGkIFAJAaQgUAkBpCBQCQGkIFAJAaQgUAkJp0Q2XYk9ZuUbIrlliWJXa+JAeXrr9TudI5Kkt+1fb2r+alfNQxWyf15XgzI9VLv+o68ucvWbFNG2tlRpthV45/zYr1ui49f9Ok/seiZHa9pz1751UpZr3z0M8svXPGP3NBn3Pbm/+H9mH0Pa2VrBT/aEpv6O8HgCWVaqi4ZxXZOnKkP/DrrYpk7S1p3Ht1uaxK5kVFWkH9viWVF7HwCHRrZkCuijf896VRsqXwvisDHZQHXalt2FI6ib2b7K4pO2s5KW8X54SKaffS9HVl/uk2pfJbXZzgREfnYcvWaRALC/pc1P6mLju7LekG71Xz2+cPo3fiAMAySnemMqUntVeWVC68Wv9DQay3ba/ia/1uSeHD+Msru4f5aAC+rUtBAyb+K/+iInYYHgNx9kommMyAbrbPDBUNqpc1Ey3Jeu/Xo3Nb2Oe0sfYJekfT3x0Als3zhsrQkepqTg6u/boO1isFqQUjuxnoC6tmJjOWKdomHx3T2hGr1Bhfmrozn2NVZGqInhMqzl5m7kzB2c1I7i9//1P69I21nzC4aUjZzKSqn/yZDQAsqWcNlZ6ZmdhmcB7LjG5dihlbMmtZyW4ciBMshQV0iWzzOGyT/Au/LRWrIPVbvxqYFSqjcCvK8fiEKDIKu1IYbk/qU0209+jxlndNJVOS2uWszgFgeTxbqLhmgM+tmV/28Z/7bkdqm1lZ322Ic9WQ6s+22Js16YTHDKS5bUvxYzQApxEqg3/Kpp8oqMa45rPMLKJyEZ3ok/pMaD9p0HfkYMOW3H70SmgAWEbPEiqumW2sr21J48bf4NMlovzYEpEr7bdmxrLf8aoPTSnbZWnG/yKlBkXiUtSOtCbvpkoMFS+oymcJS0+umcG8ysnWyUQMPbbPWe2TXB9Izp69fAYAyyD1UPECxQTDnb8h1JP66+iifUgH8I36aBbhnpTE3m6aGIhJumiuS2RJy1xJoXLfkNJkUCk/EMpnCfOXx/Q5r30SQgXADyDVUJkdKB69qyvzphE9rzGM32o78WxKKLq9dyTpluJAQqjEn00JLQyEBX0uaO9et6VzG4tGf/kru8fyF4DllmKoeDOR0YXpyRJcnxj2Rw9H5mIPP5betcXVkEmaHQTcjtTf5P0HEbNS3J94UDEwFSp6TtNBNbpmEj+/sMRmEnP6XNTe/VSV4lrGa2tK+JBn0ncDgCWS6kwFAPBjI1QAAKkhVAAAqSFUAACpIVQAAKkhVAAAqSFUAACpSQyV03NHhsNvfg0AgMU0NzQ/AmGofL7qypfeI18/AgCAobmh+REIQ+Wr+zBKGz2AGQsAYB7NCc0LzQ3Nj0AYKkp3aOLoQbpGRqFQKBRKUtGc0LyIB4oaCxUAAL4HoQIASInI/z51GXiJlEhQAAAAAElFTkSuQmCC" InformativeScreenshot="094117d4de4ec8d01b0390ea002abb18.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="73, 277, 215, 27" ElementType="Text" FriendlyName="'Start Date'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='Start Date' innertext='Start Date' parentid='yw1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='Start Date' innertext='Start Date' parentid='yw1' type='' class='col-sm-4 control-label' check:text='Start Date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAAfCAYAAABu+rjiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOfSURBVHhe7dnPS9tgHAbw/U855VAICIKHnOzFgtCwyxBWEOxluclAHIziQTyIgpTBiuC6U4XNw6DC6A7Sw6ADiVDIQQgIAQ+BwrP3Td601cam2u6FwfOBgG/z63t4H7/Jm1cgIi0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDaaTdDB0VYRlmHAEJu1+gbuua92emis19BVo3lEl7uofA3UKEuA5tukhnQzVxy4J2349+qQmSyu5lkxbJRv0MPRqonKmYdoIMcRwn4PnZsw2R9ewDUWM3F7x/ZMYatdqaEQBR7aBw7MVVHDrIFbYM2zYtgo320Tlacm5k0L7utlmIaF4noJpfVtXMRZCdDeq6K0YqruU0H9dxSfIgVfKyJUPvzzbZQKokNtfsH3wwpKS/JYeR2xnWTdcTJsiQidjzbMDx3xVyK4rKG6JmsT1y8so3LSS/Y9WbO4ynUTu2VrWPPRr2nBfx6GjfLJzmbb2P3xxMTLDGME/8ZPOqF0XYdTEMeosQybXXZQPe4ijLtl8nt3z3h2Zxv6cwS7sD+sI/I9+GnyBh7qZXN0XlbNd6LbLVXQ7Ktx2EHNdtBIx3Ni2Ggm0XUDVdF1rLKL+g8vCUhqWucb6qJmiIl8m4xk2Iz1Orzx6whzhS2uY3SPxx5cO6NmWVPps6dGCflY+/i3l2LYaHbiXc2/aqK2KR7BlqpoXKu2kRW2QYjeuXiMix/T5CYXVx6FbW8ynosIW0udHv5pobaV3r+EovhnMS1s8t7jCy/DLaPOl2DY6EWCcxdmuYF4PTJj4vaOizA3m/CHnSujsy06bOOPkeLvYmHskVDI62z5954Pw0YvMz5ZJyZuRiDi1b9/GbYI7R0T9mEvHk1eP8TFu+lh80+dBwssi8awUb5+F+2bAGE6C+99tD+IzpVOzDRI6We3eOIbcD6pdx3xSNk5cGDJTpMTNvmOZH+cNuEnwxaJ+hrvS7DWRFdTS//ye51RHr0Thj/34SyZo7BN1CzIBZJC8cFCkPys4N+pwZwYNsrXb8HdGH3Qlkvz1cMOguEjYgTvzMWyXMIvVJN3Jv/iwRJ6/bcvOkt+2HDXQU2dZx1m7FdhG75PGSaW16rYPR2vRxiI++2IgMtj1LK//80d65oZNUv9dvJOGl/bQnHDRYurkUT/F4aNSBOGjUgTho1IE4aNSBOGjUgTho1IC+AvjFwwy1OS7acAAAAASUVORK5CYII=" SearchSteps="Selector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBetweenKeys="0.1" DisplayName="Type Into 'End Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1037,217" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Text="[ConvertedEndDate + &quot;[k(enter)]&quot;]" Version="V1">
+                  <uix:NTypeInto.Target>
+                    <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/deliveryOrder" DesignTimeRectangle="303, 325, 401, 34" ElementType="InputBox" FriendlyName="'INPUT DeliveryOrderSear…'" FullSelectorArgument="&lt;webctrl id='DeliveryOrderSearchForm_actualEndDate' tag='INPUT' aaname='End Date' parentid='yw1' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='DeliveryOrderSearchForm_actualEndDate' tag='INPUT' aaname='End Date' parentid='yw1' type='text' class='grd-white form-control' /&gt;" Guid="4ce051e3-2780-4f48-b161-b25cd69c8b91" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZUAAAAmCAYAAAAMcgZUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFDSURBVHhe7dixisJAGIXRff/HWqwWW2G1FsHKQsEmMstdkiGyYVX8y3PgFkmm/5h8NAAoIioAlLmLyvlybZvdvq3W2/b59W1mZra4dCK9SDfmelTyIYcOx1Mbhtv4FgD+SifSi3RjHpYelRQnBwDgWelG+jHpUUlt3FAAeEW6kX5MelTyjwwAXjXvh6gA8BZRAaCMqABQRlQAKCMqAJQRFQDKiAoAZUQFgDKiAkAZUQGgjKgAUEZUACgjKgCUERUAyogKAGVEBYAyogJAGVEBoIyoAFBGVAAoIyoAlBEVAMqICgBlRAWAMqICQJnFqKzW2zYMt/EJAB5LN9KPSY/KZrdvh+NpfAKAx9KN9GPSo3K+XH9rkwNuLAD8J51IL9KN9GPSoxL5kOLkUP6RmZmZLS2dSC/mQYm7qADAO0QFgCKt/QBzdJMm39vX6AAAAABJRU5ErkJggg==" InformativeScreenshot="d66628e71bf41e5fc230c6ff4b9a9afa.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <uix:Target DesignTimeRectangle="73, 326, 215, 27" ElementType="Text" FriendlyName="'End Date'" FullSelectorArgument="&lt;webctrl aaname='End Date' tag='LABEL' innertext='End Date' parentid='yw1' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='End Date' tag='LABEL' innertext='End Date' parentid='yw1' type='' class='col-sm-4 control-label' check:text='End Date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAAfCAYAAABu+rjiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMASURBVHhe7dnPS9tgAMbx/U855VAoFAoeerKXBgaGHQYDC4JezG0MpAMpHmSH0YH0ogijnjooPQgVRjxIB4MKkkEhByEgBHYICM/yNm9tYkWbvu7FjecDgb79kTeHfpvk7SsQkRaMjUgTxkakCWMj0oSxEWnC2Ig0YWxEmjA2Ik0YG5EmjI1IE8ZGpAljI9KEsRFpwtjo5blowljvIJDD/wVjIzUiDMOY25oX8vVlPBpbgM56di5zxYZzMID/W75lQd6hpXacOTE2UvM3zkILxJaOJAo8DD7ZMFebGC4cXIj+tuKPQk6MjdQ8GUYdncsh2ptVFMWZqGSjceIhku8Qwh9t1FfM+Cxlovymgf5pG1aO2BIR3N0KzI/u3b6Dsya2amWYYt5CGfWDkXzNQ3fbRrlgoLhqwXpt4X0vmS266qCxVpRnzDpa58/3M8LYSM0CZyGztg/3Rj4VDtAo2Dgay/F1B/VCHOR0HA7RemvCzB1b7LKFSmEfQzmMfA/+tLxbD+01M/W5B/Zz04dTSh+Li2YldayKGBupEbHJe6fZFl/OTV5MvtD1k2w27q4BpxdOHov7JnNvmkci7Dm5LiPviHCNOJZrOb5nuJc+lvn9BCd1WIeeHCVGXypzzy2LsZGanPdXQvpLnw1AWmKfEzK2rvxgeNlFczO5TBRbtfR4bOJY5n844u3ej8GyGBupeUmxpS8j48fV9OVpLDvXw7HNHcszYmykRjE2cRlZ+TyaPJ6KzhpLxBZhsGPe7UtcEmbPSMnq42Ox+cd2ZoHluTE2UqMYG8ZHsDMLJCO0N/ItkETjIY4+WCjW4rOaXPqfBLvWhnebjMPv+7BLZio2Gd9XX45jYoGkUEXjdDaz+FvBny7uKGJspEbE9sB9ThLDArHFgvPWbOl/owX3Z3zv9URss7niz9S20Dh2EciwJm599Hfs5O8Guezv95zMvNGvDhw579Y3+fx4gOaG/LvAKKL6zkGXq5FE/xbGRqQJYyPShLERacLYiDRhbESaMDYiLYA/HZxOTHTHaTQAAAAASUVORK5CYII=" SearchSteps="Selector, Image" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NTypeInto.Target>
+                </uix:NTypeInto>
+                <Assign DisplayName="Assign filename" sap:VirtualizedContainerService.HintSize="1037,81" sap2010:WorkflowViewState.IdRef="Assign_35">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ExcelFilenameConsolidated]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">["InputExcelConsolidated_"+now.ToString("ddMMyyyyhhmmss")+".xlsx"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign ExcelFilepath" sap:VirtualizedContainerService.HintSize="1037,81" sap2010:WorkflowViewState.IdRef="Assign_36">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_InputExcelFileConso]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[string.Join("\",in_InputExcelFolderPathConso.ToString,ExcelFilenameConsolidated)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ScrapeDataForCustomerConso workflow" sap:VirtualizedContainerService.HintSize="1037,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="SDMS\ScrapeDataForCustomerConso.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_MonthlyCustomer1">
+                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_MonthlyCustomer1" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">
+                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config1" />
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType">
+                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_ProcessType" />
+                    </InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_InputExcelFileConso">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_InputExcelFileConso" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Extracted">
+                      <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="new DataTable" />
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RowCount">
+                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="RowCount" />
+                    </InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <If Condition="[RowCount&gt; 0]" DisplayName="If File has rows to process" sap:VirtualizedContainerService.HintSize="1037,549" sap2010:WorkflowViewState.IdRef="If_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Input file ready" sap:VirtualizedContainerService.HintSize="450,203" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message - input file ready" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_54" Level="Info" Message="[&quot;Input fie is ready for processing.&quot;]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="If Input records are not available" sap:VirtualizedContainerService.HintSize="496,390" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message - No records available" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_55" Level="Error" Message="[&quot;There are no input records available for processing for consolidated process.&quot;]" />
+                      <Assign DisplayName="Assign input si not there" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_27">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[out_InputConso]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Throw DisplayName="Throw - No records available" Exception="[new BusinessRuleException(&quot;There are no records available for consolidated process.&quot;)]" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:LogMessage DisplayName="Log Message - End of Extract input sequence for Consolidated process" sap:VirtualizedContainerService.HintSize="1037,92" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;End of Extract Sequence of Consolidated process.&quot;]" />
+              </Sequence>
+            </ActivityAction>
+          </uix:NApplicationCard.Body>
+          <uix:NApplicationCard.TargetApp>
+            <uix:TargetApp Area="-9, -9, 1618, 868" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALJSURBVDhPbZJNTBNREMdfd/v2s5QWSwMiFbAeFLxoDCGichAuhhAOJhC4Kxw0Rgz1pAdOnDTcBUM04SLyIZBw0MTEg6C2fiAkyMWDIUgi5Wu3b7bj7LbUhDDJZN+2M7/3n/8OOxzfGi4ypGc6FFYsVS2xNK1kK1KqMkS2VN+UKzoq1muqvcZ9TYtlFH5bcP9L8EsLbtJ5PKMqd/ZN46Rbs3GiwusphK0ZbDtU7rNVpVVoSgq47Dh+CQ9lln7/Yiu8bZcxyfblmzdiuZttTW0Dhf8Wvb0ItWfQkRiC4s8109nxUco+JEXrGUVpd3v2gkHGLF1n+2agiugp0BSEkWGEq1cQikwUffcQyssQqmIIF84jVBzPQ+SvlmFU27rGWJakCM7vujd5gOGnCJcbESIlCDMzKIaGEBYW0FldRTE3i6K7K+sqI5/6XBVsNxjSiDjpAVSO8OI5ip4eFCcr0Ukm0UmlUNy6iTA1haKlGTODgwDRCILse22ZAZ1ZATNCgE8FwNgYwvIywvw8ZtNpFIl+8qQWYXwcoTiIoGvokALq+UxjRF1AaQGQH0F0dqBovY7O2hrCo4cIdXUEeIUQDnkeeLV+OWkZepRtF3kjTP8HkImuB6FidD4uorOyguJBAmFi4jBgdjdQpHufkAy5fzCCePIYoaEeofQYwvQ0ZgYGEBYJ9OZtDpoH0HIlPBPpCxBArSHid++PWCVCwMwBno0guO+NlxAmpwoKqPaHpfA4LRVjW8Wh3CIp/AYtyR9HohvcW1xDq6vIMHrWnkUYHSUFZKIsbdLGdrg9m2VRVwNjO6rGNlVdykHkJVKSddUUYAEDxel4Vih8OcN5R9oMynu6kWs+iK1QmL1v72I256dorH7B5VmCJd0UfnkuI/kSFufxD03X2N/icL7riPh1ro4luzvZTiCg26YZdZPOxruWZvYzXpOvOgjG/gFejr3F3cctGQAAAABJRU5ErkJggg==" InformativeScreenshot="5941302daf3ec603ac11b0540f1bdb63.png" Selector="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" Url="[in_Config1(&quot;DeliveryOrderPage&quot;).ToString]" />
+          </uix:NApplicationCard.TargetApp>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </uix:NApplicationCard>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="824,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Exception Section" sap:VirtualizedContainerService.HintSize="450,357" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - In catch" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Error" Message="[&quot;In the catch of extracting input for Consolidated process.&quot;+exception.Message+&quot; At Source: &quot;+exception.Source]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmail workflow Exception" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusable Code\SendExceptionEmail.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[exception.Message]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">[in_Config1("ExceptionBody").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">[in_Config1("CCEmailList").tostring]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList1">[in_Config1("RecipientsEmailList").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExScreenshotsFolderPath">[in_Config1("ExScreenshotsFolderPath").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionOccured">[exception.Message]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="824,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Exception section" sap:VirtualizedContainerService.HintSize="450,457" sap2010:WorkflowViewState.IdRef="Sequence_44">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - No data" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Info" Message="[&quot;No data available for processing for consolidated process as DO datatable didn't have any records.&quot;]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmailNoData workflow" sap:VirtualizedContainerService.HintSize="366.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Reusable Code\SendExceptionEmailNoData.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_Config1("NoDataSubject").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">[in_Config1("NoDataBodyConso").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">[in_Config1("CCEmailList").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList1">[in_Config1("RecipientsEmailList").ToString]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Assign DisplayName="Assign Process Counter" sap:VirtualizedContainerService.HintSize="366.4,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[io_ProcessCounterConso]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[io_ProcessCounterConso+1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

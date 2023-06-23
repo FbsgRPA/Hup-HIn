@@ -1,0 +1,186 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SDMSLogout" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_SDMSLoginURL" Type="InArgument(x:String)" />
+    <x:Property Name="in_RetryNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_RetryIntervalMedium" Type="InArgument(x:TimeSpan)" />
+    <x:Property Name="in_DelayMedium" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1122.4,1095.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SDMSLogout_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Logout from the SDMS web portal." DisplayName="SDMS Logout Sequence" sap:VirtualizedContainerService.HintSize="458.4,1030.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="LoggedIn" />
+      <Variable x:TypeArguments="x:Boolean" Name="LogoutSuccess" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Inside SDMS Logout" sap:VirtualizedContainerService.HintSize="416.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Inside logout SDMS sequence.&quot;]" />
+    <ui:RetryScope DisplayName="Retry Scope for Logout" sap:VirtualizedContainerService.HintSize="416.8,640.8" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[in_RetryNumber]" RetryInterval="[in_RetryIntervalMedium]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="375.2,392.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[LoggedIn]" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="663b2dfb-16c7-4088-901a-4600be304372" InformativeScreenshot="c439aacdd59d9a60c0b65711c1a8c60a" Selector="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;&lt;webctrl aaname='FUJIFILM* [Administration]' tag='DIV' /&gt;" TimeoutMS="[in_DelayMedium]" WaitForReady="INTERACTIVE" />
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[LoggedIn]" DisplayName="If system is already logged into SDMS" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="If_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" ContinueOnError="True" DisplayName="Open Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="433.6,666.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="4c931ca6-acdc-4497-8206-0cae4bb45aff" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,449.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NHover DisplayName="Hover 'FUJIFILM [Administratio…'" sap:VirtualizedContainerService.HintSize="333.6,157.6" HoverTime="[in_DelayMedium]" sap2010:WorkflowViewState.IdRef="NHover_1" ScopeIdentifier="4c931ca6-acdc-4497-8206-0cae4bb45aff" Version="V1">
+                          <uix:NHover.Target>
+                            <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/landing" DesignTimeRectangle="1693, 161, 132, 50" FriendlyName="'FUJIFILM [Administratio…'" FullSelectorArgument="&lt;webctrl aaname='FUJIFILM                                    [Administration]' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='FUJIFILM                                    [Administration]' tag='DIV' type='' class='' check:innerText='FUJIFILM&amp;#xD;&amp;#xA;[Administration]' /&gt;" Guid="0cb34cfa-e6ef-4912-85ac-460af5c01d3f" ImageBase64="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" InformativeScreenshot="b4b21f0240b5a19f34e26e7e653bd3db.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                          </uix:NHover.Target>
+                        </uix:NHover>
+                        <uix:NClick ClickType="Single" DisplayName="Click 'Log Out'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4c931ca6-acdc-4497-8206-0cae4bb45aff" Version="V1">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/landing" DesignTimeRectangle="1581, 331, 244, 43" ElementType="Text" FriendlyName="'Log Out'" FullSelectorArgument="&lt;webctrl aaname='                                                  Log Out ' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                                                  Log Out ' tag='A' type='' class='' check:innerText='Log Out' /&gt;" Guid="2ab080ed-8a76-4300-8f8e-f3d73814828f" ImageBase64="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" InformativeScreenshot="30a45001db94a9e02a4a38b9cc9f5f36.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALJSURBVDhPbZJNTBNREMdfd/v2s5QWSwMiFbAeFLxoDCGichAuhhAOJhC4Kxw0Rgz1pAdOnDTcBUM04SLyIZBw0MTEg6C2fiAkyMWDIUgi5Wu3b7bj7LbUhDDJZN+2M7/3n/8OOxzfGi4ypGc6FFYsVS2xNK1kK1KqMkS2VN+UKzoq1muqvcZ9TYtlFH5bcP9L8EsLbtJ5PKMqd/ZN46Rbs3GiwusphK0ZbDtU7rNVpVVoSgq47Dh+CQ9lln7/Yiu8bZcxyfblmzdiuZttTW0Dhf8Wvb0ItWfQkRiC4s8109nxUco+JEXrGUVpd3v2gkHGLF1n+2agiugp0BSEkWGEq1cQikwUffcQyssQqmIIF84jVBzPQ+SvlmFU27rGWJakCM7vujd5gOGnCJcbESIlCDMzKIaGEBYW0FldRTE3i6K7K+sqI5/6XBVsNxjSiDjpAVSO8OI5ip4eFCcr0Ukm0UmlUNy6iTA1haKlGTODgwDRCILse22ZAZ1ZATNCgE8FwNgYwvIywvw8ZtNpFIl+8qQWYXwcoTiIoGvokALq+UxjRF1AaQGQH0F0dqBovY7O2hrCo4cIdXUEeIUQDnkeeLV+OWkZepRtF3kjTP8HkImuB6FidD4uorOyguJBAmFi4jBgdjdQpHufkAy5fzCCePIYoaEeofQYwvQ0ZgYGEBYJ9OZtDpoH0HIlPBPpCxBArSHid++PWCVCwMwBno0guO+NlxAmpwoKqPaHpfA4LRVjW8Wh3CIp/AYtyR9HohvcW1xDq6vIMHrWnkUYHSUFZKIsbdLGdrg9m2VRVwNjO6rGNlVdykHkJVKSddUUYAEDxel4Vih8OcN5R9oMynu6kWs+iK1QmL1v72I256dorH7B5VmCJd0UfnkuI/kSFufxD03X2N/icL7riPh1ro4luzvZTiCg26YZdZPOxruWZvYzXpOvOgjG/gFejr3F3cctGQAAAABJRU5ErkJggg==" InformativeScreenshot="f610df8dd8e18dd7afc19468a0f91936.png" Selector="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" Url="[in_SDMSLoginURL.ToString]" />
+                  </uix:NApplicationCard.TargetApp>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NApplicationCard>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <Assign DisplayName="Assign LogoutSuccess" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[LogoutSuccess]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean">
+          <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True logout success" Expression="[LogoutSuccess]" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        </ActivityFunc>
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:LogMessage DisplayName="Log Message - Inside SDMS Logout sequence" sap:VirtualizedContainerService.HintSize="416.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;End of SDMS logout sequence.&quot;]" />
+  </Sequence>
+</Activity>

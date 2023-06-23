@@ -1,0 +1,189 @@
+01/17/2023 14:27:14 => [Debug] Execution started for project: DO and Invoice Process Automation
+01/17/2023 14:27:16 => [Info] DO and Invoice Process Automation execution started
+01/17/2023 14:27:18 => [Info] The primary screen resolution is: 1600 x 900
+01/17/2023 14:27:19 => [Debug] Initializing settings...
+01/17/2023 14:27:20 => [Info] Inside logout SDMS sequence.
+01/17/2023 14:27:20 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:27:31 => [Error] In the catch of SDMS logout sequence.
+01/17/2023 14:27:31 => [Debug] Killing processes...
+01/17/2023 14:27:31 => [Debug] Killing processes Sequence finished...
+01/17/2023 14:27:31 => [Info] Checking if Daily folder for Output file is created.
+01/17/2023 14:27:31 => [Info] Daily folder exists for saving output master file. The path is: M:\2. Sales Department\Unipath\Master File\Daily
+01/17/2023 14:27:31 => [Info] Checking if Consolidated folder for Output file is created.
+01/17/2023 14:27:31 => [Info] Consolidated folder exists for saving output master file. The path is: M:\2. Sales Department\Unipath\Master File\Consolidated
+01/17/2023 14:27:31 => [Info] Checking if Monthly folder for Output file is created.
+01/17/2023 14:27:31 => [Info] Monthly folder exists for saving output master file. The path is: M:\2. Sales Department\Unipath\Master File\Monthly
+01/17/2023 14:27:32 => [Debug] Opening applications...
+01/17/2023 14:27:32 => [Info] Checking the shared drive accesses.
+01/17/2023 14:27:32 => [Info] Checking if master file path is acessible. The Path is: M:\2. Sales Department\Unipath\Master File\
+01/17/2023 14:27:32 => [Info] Master File Path network drive is accessible.
+01/17/2023 14:27:32 => [Info] Checking if master file path is acessible. The Path is: M:\2. Sales Department\Unipath\Master File\
+01/17/2023 14:27:32 => [Info] Checking if Schedule details file is available on the Path: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\ScheduleDetails.xlsx
+01/17/2023 14:27:32 => [Info] Schedule details file is available to proceed.
+01/17/2023 14:27:32 => [Info] Checking Excel...
+01/17/2023 14:27:32 => [Info] Excel check completed.
+01/17/2023 14:27:32 => [Info] Checking Outlook...
+01/17/2023 14:27:32 => [Info] Outlook check completed.
+01/17/2023 14:27:32 => [Info] Fetching credentials for SDMS login from orchestrator.
+01/17/2023 14:27:33 => [Info] Credentials for logging into SDMS web portal is successful.
+01/17/2023 14:27:33 => [Info] Trying to login to SDMS Portal.
+01/17/2023 14:27:33 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:27:35 => [Info] Entering username for SDMS Login.
+01/17/2023 14:27:36 => [Info] Entering password for SDMS Login.
+01/17/2023 14:27:36 => [Info] Clicking on Login button.
+01/17/2023 14:27:38 => [Info] Change password popup appeared. Clicling on ok.
+01/17/2023 14:27:44 => [Info] Restore Pages window didn't appear.
+01/17/2023 14:27:44 => [Info] Save Password popup appeared. Clicking on Never button.
+01/17/2023 14:27:46 => [Info] Login to SDMS is successful.
+01/17/2023 14:27:46 => [Debug] Opening applications sequence ended...
+01/17/2023 14:27:47 => [Info] Get the transaction item
+01/17/2023 14:27:47 => [Info] Transaction datatable is empty.
+01/17/2023 14:27:47 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\ScheduleDetails.xlsx
+01/17/2023 14:27:50 => [Info] Total number of processes to run today: 3
+01/17/2023 14:27:50 => [Info] Process: Daily
+01/17/2023 14:27:50 => [Info] Process: Consolidated
+01/17/2023 14:27:50 => [Info] Process: Monthly
+01/17/2023 14:27:50 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Fields to be added on UI by Huphin.xlsx
+01/17/2023 14:27:51 => [Info] Input path for Daily Process is already created.
+01/17/2023 14:27:51 => [Info] In Extract Sequence of Daily process.
+01/17/2023 14:27:51 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:27:57 => [Info] Delivery orders page is opened successfully.
+01/17/2023 14:28:06 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:28:16 => [Info] There are 2 number of records to process.
+01/17/2023 14:28:16 => [Info] Creating today's input excel file.
+01/17/2023 14:28:16 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Daily\InputExcelDaily_17-01-2023.xlsx
+01/17/2023 14:28:17 => [Info] Input fie is ready for processing.
+01/17/2023 14:28:17 => [Info] End of Extract Sequence of Daily process.
+01/17/2023 14:28:17 => [Info] Processing Transaction Number: 1
+01/17/2023 14:28:19 => [Info] Started Process
+01/17/2023 14:28:19 => [Info] Processing for: Daily
+01/17/2023 14:28:19 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/deliveryOrder
+01/17/2023 14:28:29 => [Info] Today's folder for saving DO PDFs is already created.
+01/17/2023 14:28:29 => [Info] Current DO PDF filename is: HupHin-DeliveryOrder-DO230116033-2023-01-17.pdf
+01/17/2023 14:29:07 => [Info] DO PDF downloaded successfully for DO number: DO230116033
+01/17/2023 14:29:11 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Daily\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:29:16 => [Info] Process sequence ended.
+01/17/2023 14:29:16 => [Info] Transaction Successful.
+01/17/2023 14:29:17 => [Info] Get the transaction item
+01/17/2023 14:29:17 => [Info] Processing Transaction Number: 2
+01/17/2023 14:29:18 => [Info] Started Process
+01/17/2023 14:29:18 => [Info] Processing for: Daily
+01/17/2023 14:29:18 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/deliveryOrder
+01/17/2023 14:29:24 => [Info] Start and End work time after lunch is not available
+01/17/2023 14:29:28 => [Info] Today's folder for saving DO PDFs is already created.
+01/17/2023 14:29:29 => [Info] Current DO PDF filename is: HupHin-DeliveryOrder-DO230116049-2023-01-17.pdf
+01/17/2023 14:30:07 => [Info] DO PDF downloaded successfully for DO number: DO230116049
+01/17/2023 14:30:15 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Daily\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:30:19 => [Info] Process sequence ended.
+01/17/2023 14:30:19 => [Info] Transaction Successful.
+01/17/2023 14:30:20 => [Info] Get the transaction item
+01/17/2023 14:30:20 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Fields to be added on UI by Huphin.xlsx
+01/17/2023 14:30:22 => [Info] Input path for Consolidated Process is already created.
+01/17/2023 14:30:22 => [Info] In Extract Sequence of Consolidated process.
+01/17/2023 14:30:22 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:30:29 => [Info] Delivery orders page is opened successfully.
+01/17/2023 14:30:31 => [Info] Creating Consolidated input excel file.
+01/17/2023 14:30:54 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:31:25 => [Info] There are no input records available for processing for Customer: CHINA COMMUNICATIONS CONST CO LTD, J120
+01/17/2023 14:31:44 => [Info] Customer name not found in the dropdown list of customers.CHINA JINGYE CONST ENGRG (S) PL, JL PAPAN
+01/17/2023 14:32:00 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:32:31 => [Info] Delivery Order No.,Job Number,Company Name,Project Code,Customer PO No.,Quotation Reference No.,Submitted Start & End Date / Time 1,Submitted Start & End Date / Time 2,Sent to Customer,DO printed,Last Updated,URL
+DO230107017,JO230107019,HSL CONSTRUCTOR PTE LTD,,,,08/01/2023 08:00 ~ 08/01/2023 17:00,,No,Yes,FUJIFILM Business Innovation Corp
+16/01/2023 17:28,https://hhtc.insightservicing.sg/deliveryOrder/9313
+01/17/2023 14:32:37 => [Info] There are 1 number of records to process for Customer: HSL CONSTRUCTOR PTE LTD
+01/17/2023 14:32:37 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Consolidated\InputExcelConsolidated_17-01-2023.xlsx
+01/17/2023 14:32:53 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:33:24 => [Info] Delivery Order No.,Job Number,Company Name,Project Code,Customer PO No.,Quotation Reference No.,Submitted Start & End Date / Time 1,Submitted Start & End Date / Time 2,Sent to Customer,DO printed,Last Updated,URL
+DO230116047,JO230116048,KING PLASTIC PTE LTD,,,,17/01/2023 08:00 ~ 17/01/2023 12:00,,No,Yes,Meixuan Tan
+17/01/2023 14:21,https://hhtc.insightservicing.sg/deliveryOrder/9749
+DO230115021,JO230115021,KING PLASTIC PTE LTD,,,,16/01/2023 12:00 ~ 16/01/2023 16:00,,No,Yes,Meixuan Tan
+16/01/2023 17:28,https://hhtc.insightservicing.sg/deliveryOrder/9711
+01/17/2023 14:33:29 => [Info] There are 2 number of records to process for Customer: KING PLASTIC PTE LTD
+01/17/2023 14:33:29 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Consolidated\InputExcelConsolidated_17-01-2023.xlsx
+01/17/2023 14:33:50 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:34:21 => [Info] Delivery Order No.,Job Number,Company Name,Project Code,Customer PO No.,Quotation Reference No.,Submitted Start & End Date / Time 1,Submitted Start & End Date / Time 2,Sent to Customer,DO printed,Last Updated,URL
+,,,,,,,,,,,
+01/17/2023 14:34:21 => [Info] There are no input records available for processing for Customer: QINGJIAN INT (SP) GRP DEV CO PL
+01/17/2023 14:34:40 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:35:11 => [Info] Delivery Order No.,Job Number,Company Name,Project Code,Customer PO No.,Quotation Reference No.,Submitted Start & End Date / Time 1,Submitted Start & End Date / Time 2,Sent to Customer,DO printed,Last Updated,URL
+,,,,,,,,,,,
+01/17/2023 14:35:11 => [Info] There are no input records available for processing for Customer: STRATEGIC MARINE (S) PTE LTD
+01/17/2023 14:35:29 => [Info] Customer name not found in the dropdown list of customers.WELLTECH CONST PTE LTD, TAMPINES N6C15-16
+01/17/2023 14:35:46 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:36:17 => [Info] Delivery Order No.,Job Number,Company Name,Project Code,Customer PO No.,Quotation Reference No.,Submitted Start & End Date / Time 1,Submitted Start & End Date / Time 2,Sent to Customer,DO printed,Last Updated,URL
+DO230116017,JO230116018,YKK AP SINGAPORE PTE LTD.,SGA,,,16/01/2023 18:00 ~ 16/01/2023 22:00,,No,Yes,Meixuan Tan
+17/01/2023 07:52,https://hhtc.insightservicing.sg/deliveryOrder/9734
+DO230116018,JO230116019,YKK AP SINGAPORE PTE LTD.,SGA,,,16/01/2023 17:30 ~ 16/01/2023 21:30,,No,Yes,Meixuan Tan
+17/01/2023 07:52,https://hhtc.insightservicing.sg/deliveryOrder/9731
+01/17/2023 14:36:22 => [Info] There are 2 number of records to process for Customer: YKK AP SINGAPORE PTE LTD
+01/17/2023 14:36:22 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Consolidated\InputExcelConsolidated_17-01-2023.xlsx
+01/17/2023 14:36:40 => [Info] Customer name not found in the dropdown list of customers.Remark: Kindly create a drop down for Monthly customer Huphin has
+01/17/2023 14:36:40 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Consolidated\InputExcelConsolidated_17-01-2023.xlsx
+01/17/2023 14:36:41 => [Info] Input fie is ready for processing.
+01/17/2023 14:36:41 => [Info] End of Extract Sequence of Consolidated process.
+01/17/2023 14:36:41 => [Info] Processing Transaction Number: 3
+01/17/2023 14:36:42 => [Info] Started Process
+01/17/2023 14:36:42 => [Info] Processing for: Consolidated
+01/17/2023 14:36:42 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/deliveryOrder
+01/17/2023 14:36:48 => [Info] Start and End work time after lunch is not available
+01/17/2023 14:37:01 => [Info] Creating today's folder for saving DO PDFs.
+01/17/2023 14:37:02 => [Info] Current DO PDF filename is: HupHin-DeliveryOrder-DO230107017-2023-01-17.pdf
+01/17/2023 14:37:40 => [Info] DO PDF downloaded successfully for DO number: DO230107017
+01/17/2023 14:37:44 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Consolidated\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:37:48 => [Info] Process sequence ended.
+01/17/2023 14:37:48 => [Info] Transaction Successful.
+01/17/2023 14:37:49 => [Info] Get the transaction item
+01/17/2023 14:37:49 => [Info] Processing Transaction Number: 4
+01/17/2023 14:37:50 => [Info] Started Process
+01/17/2023 14:37:50 => [Info] Processing for: Consolidated
+01/17/2023 14:37:50 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/deliveryOrder
+01/17/2023 14:37:56 => [Info] Start and End work time after lunch is not available
+01/17/2023 14:38:09 => [Info] Today's folder for saving DO PDFs is already created.
+01/17/2023 14:38:10 => [Info] Current DO PDF filename is: HupHin-DeliveryOrder-DO230116017-2023-01-17.pdf
+01/17/2023 14:38:48 => [Info] DO PDF downloaded successfully for DO number: DO230116017
+01/17/2023 14:38:52 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Consolidated\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:38:56 => [Info] Process sequence ended.
+01/17/2023 14:38:56 => [Info] Transaction Successful.
+01/17/2023 14:38:57 => [Info] Get the transaction item
+01/17/2023 14:38:57 => [Info] Processing Transaction Number: 5
+01/17/2023 14:38:58 => [Info] Started Process
+01/17/2023 14:38:58 => [Info] Processing for: Consolidated
+01/17/2023 14:38:58 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/deliveryOrder
+01/17/2023 14:39:04 => [Info] Start and End work time after lunch is not available
+01/17/2023 14:39:18 => [Info] Today's folder for saving DO PDFs is already created.
+01/17/2023 14:39:18 => [Info] Current DO PDF filename is: HupHin-DeliveryOrder-DO230116018-2023-01-17.pdf
+01/17/2023 14:39:57 => [Info] DO PDF downloaded successfully for DO number: DO230116018
+01/17/2023 14:40:01 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Consolidated\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:40:04 => [Info] Process sequence ended.
+01/17/2023 14:40:04 => [Info] Transaction Successful.
+01/17/2023 14:40:05 => [Info] Get the transaction item
+01/17/2023 14:40:05 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Fields to be added on UI by Huphin.xlsx
+01/17/2023 14:40:06 => [Info] Input path for Monthly Process is already created.
+01/17/2023 14:40:06 => [Info] In Extract Sequence of Monthly process.
+01/17/2023 14:40:06 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:40:13 => [Info] Jobs page is opened successfully.
+01/17/2023 14:40:21 => [Debug] Audit: Extract Data. From: <html app='chrome.exe' title='Hup Hin SDMS' />
+01/17/2023 14:40:22 => [Info] There are 2 number of records to process for monthly scenario.
+01/17/2023 14:40:33 => [Info] Generate monthly time sheet popup doesn't exist.
+01/17/2023 14:40:45 => [Info] Generate monthly time sheet popup doesn't exist.
+01/17/2023 14:40:45 => [Info] Creating today's input excel file.
+01/17/2023 14:40:45 => [Info] Audit: Using Excel File: C:\Users\Finance Laptop\Documents\UiPath\DO and Invoice Process Automation\Data\Input\Monthly\InputExcelMonthly_17-01-2023.xlsx
+01/17/2023 14:40:46 => [Info] Input fie is ready for processing.
+01/17/2023 14:40:46 => [Info] End of Extract Sequence of Monthly process.
+01/17/2023 14:40:46 => [Info] Processing Transaction Number: 6
+01/17/2023 14:40:46 => [Info] Started Process
+01/17/2023 14:40:46 => [Info] Processing for: Monthly
+01/17/2023 14:40:46 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/job
+01/17/2023 14:41:00 => [Info] Creating today's folder for monthly saving DO PDFs.
+01/17/2023 14:41:01 => [Info] Current DO PDF filename is: Monthly-Time-Sheet-202301-28132.pdf
+01/17/2023 14:41:38 => [Info] DO PDF downloaded successfully for Job number: JO230117017
+01/17/2023 14:41:43 => [Info] Audit: Using Excel File: M:\2. Sales Department\Unipath\Master File\Monthly\Fields to be added on UI by Huphin_17-01-2023.xlsx
+01/17/2023 14:41:45 => [Info] Process sequence ended.
+01/17/2023 14:41:45 => [Info] Transaction Successful.
+01/17/2023 14:41:46 => [Info] Get the transaction item
+01/17/2023 14:41:46 => [Info] Process finished due to no more transaction data
+01/17/2023 14:41:48 => [Debug] Closing applications...
+01/17/2023 14:41:48 => [Info] Inside logout SDMS sequence.
+01/17/2023 14:41:48 => [Debug] Audit: Using Web App. Browser: Chrome URL: https://hhtc.insightservicing.sg/guest/login?return=%2F
+01/17/2023 14:42:00 => [Info] End of SDMS logout sequence.
+01/17/2023 14:42:01 => [Info] DO and Invoice Process Automation execution ended in: 00:14:45

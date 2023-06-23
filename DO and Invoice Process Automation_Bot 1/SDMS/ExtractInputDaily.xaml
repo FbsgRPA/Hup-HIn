@@ -1,0 +1,479 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractInput" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_InputExcelFolderPathDaily" Type="InArgument(x:String)" />
+    <x:Property Name="out_InputExcelFileDaily" Type="OutArgument(x:String)" />
+    <x:Property Name="io_ProcessCounterDaily" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="in_Config1" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_ExScreenshotsFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="out_InputDaily" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="io_ProcessType1" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1005.6,4539.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ExtractInput_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="44">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This .xaml will extract input from SDMS for Daily process." DisplayName="Extract Input for Daily process main sequence" sap:VirtualizedContainerService.HintSize="1016,4474.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="ExcelFilename" />
+      <Variable x:TypeArguments="x:String" Name="ConvertedStartDate" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch Extract input for daily" sap:VirtualizedContainerService.HintSize="974.4,4350.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap2010:Annotation.AnnotationText="Extract the total records to process from SDMS web portal." DisplayName="Extract Input for Daily process" sap:VirtualizedContainerService.HintSize="937.6,4096" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dt_DatatableExtracted" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message - In Extract input sequence for Daily process" sap:VirtualizedContainerService.HintSize="896,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;In Extract Sequence of Daily process.&quot;]" />
+          <Assign DisplayName="Assign input daily to true" sap:VirtualizedContainerService.HintSize="896,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[out_InputDaily]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke OpenDOPageDaily workflow" sap:VirtualizedContainerService.HintSize="896,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Reusable Code\OpenDOPageDaily.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_SDMSLoginURL">[in_Config1("SDMSLoginUrl").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_DelayAfterMedium">[Cint(in_Config1("DelayAfterMedium"))]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_RetryNumber">[Cint( in_Config1("RetryNumber"))]</InArgument>
+              <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_RetryIntervalMedium">[Timespan.Parse(in_Config1("RetryIntervalMedium").ToString)]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <If Condition="[String.IsNullOrEmpty( in_Config1(&quot;StartDateDaily&quot;).tostring)]" DisplayName="If check if user has entered start date'" sap:VirtualizedContainerService.HintSize="896,504.8" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="User has not entered any date in config" sap:VirtualizedContainerService.HintSize="304,345.6" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="DailyDate" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign Start Date" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[ConvertedStartDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Now.ToString("dd/MM/yyyy")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[DailyDate]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Config1("DateForDaily").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Assign Start Date" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ConvertedStartDate]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[DailyDate.ToString+"/"+ Now.ToString("MM/yyyy")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="User has entered start date" sap:VirtualizedContainerService.HintSize="375.2,285.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message - user entered start date" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;User has entered Start Date for Daily process in Config file. It is: &quot; +in_Config1(&quot;StartDateDaily&quot;).tostring]" />
+                <Assign DisplayName="Assign Start date to user choice" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ConvertedStartDate]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_Config1("StartDateDaily").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="896,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Date Entered as :&quot;+ConvertedStartDate]" />
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="896,1516" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do Huphin SDMS" sap:VirtualizedContainerService.HintSize="375.2,1299.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="[CInt(in_Config1(&quot;DelayShort&quot;))]" DisplayName="Type Into 'Start Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="WindowMessages" ScopeIdentifier="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Text="[ConvertedStartDate.ToString]" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/deliveryOrder" DesignTimeRectangle="303, 371, 401, 34" ElementType="InputBox" FriendlyName="'28/01/2023'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Start Date' id='DeliveryOrderSearchForm_actualStartDate' parentid='yw1' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='Start Date' id='DeliveryOrderSearchForm_actualStartDate' parentid='yw1' type='text' class='grd-white form-control' /&gt;" Guid="5ca27dbf-d330-4ab1-9fd6-137dfa3d3bc6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZUAAAAmCAYAAAAMcgZUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAT5SURBVHhe7d3PSxtpHMfx/SfnMiAEIVDMJRQqS4OwQchlZWkQ1oXmIPGwHtaCoUh6sOBGJLtIQNLijoccJFQiQsAOCCHlu8838zPJJFE6XtL3Cx7oMzNPnkkPzyfPMz/8SQAASAmhAgBIzViofHUf5PNVV07PHfn73/8oFAqFQkksmhOaF5obcWGo6A496EuvL8PhN38rAADTNCc0LzQ34sEShoomjh4AAMBjaW5ofgTCUNG0YYYCAHgKzQ3Nj0AYKrpGBgDAU8Xzg1ABAHwXQgUAkBpCBQCQGkIFAJAaQgUAkBpCBQCQGkIFAJAaQgUAkJp0Q2XYk9ZuUbIrlliWJXa+JAeXrr9TudI5Kkt+1fb2r+alfNQxWyf15XgzI9VLv+o68ucvWbFNG2tlRpthV45/zYr1ui49f9Ok/seiZHa9pz1751UpZr3z0M8svXPGP3NBn3Pbm/+H9mH0Pa2VrBT/aEpv6O8HgCWVaqi4ZxXZOnKkP/DrrYpk7S1p3Ht1uaxK5kVFWkH9viWVF7HwCHRrZkCuijf896VRsqXwvisDHZQHXalt2FI6ib2b7K4pO2s5KW8X54SKaffS9HVl/uk2pfJbXZzgREfnYcvWaRALC/pc1P6mLju7LekG71Xz2+cPo3fiAMAySnemMqUntVeWVC68Wv9DQay3ba/ia/1uSeHD+Msru4f5aAC+rUtBAyb+K/+iInYYHgNx9kommMyAbrbPDBUNqpc1Ey3Jeu/Xo3Nb2Oe0sfYJekfT3x0Als3zhsrQkepqTg6u/boO1isFqQUjuxnoC6tmJjOWKdomHx3T2hGr1Bhfmrozn2NVZGqInhMqzl5m7kzB2c1I7i9//1P69I21nzC4aUjZzKSqn/yZDQAsqWcNlZ6ZmdhmcB7LjG5dihlbMmtZyW4ciBMshQV0iWzzOGyT/Au/LRWrIPVbvxqYFSqjcCvK8fiEKDIKu1IYbk/qU0209+jxlndNJVOS2uWszgFgeTxbqLhmgM+tmV/28Z/7bkdqm1lZ322Ic9WQ6s+22Js16YTHDKS5bUvxYzQApxEqg3/Kpp8oqMa45rPMLKJyEZ3ok/pMaD9p0HfkYMOW3H70SmgAWEbPEiqumW2sr21J48bf4NMlovzYEpEr7bdmxrLf8aoPTSnbZWnG/yKlBkXiUtSOtCbvpkoMFS+oymcJS0+umcG8ysnWyUQMPbbPWe2TXB9Izp69fAYAyyD1UPECxQTDnb8h1JP66+iifUgH8I36aBbhnpTE3m6aGIhJumiuS2RJy1xJoXLfkNJkUCk/EMpnCfOXx/Q5r30SQgXADyDVUJkdKB69qyvzphE9rzGM32o78WxKKLq9dyTpluJAQqjEn00JLQyEBX0uaO9et6VzG4tGf/kru8fyF4DllmKoeDOR0YXpyRJcnxj2Rw9H5mIPP5betcXVkEmaHQTcjtTf5P0HEbNS3J94UDEwFSp6TtNBNbpmEj+/sMRmEnP6XNTe/VSV4lrGa2tK+JBn0ncDgCWS6kwFAPBjI1QAAKkhVAAAqSFUAACpIVQAAKkhVAAAqSFUAACpSQyV03NHhsNvfg0AgMU0NzQ/AmGofL7qypfeI18/AgCAobmh+REIQ+Wr+zBKGz2AGQsAYB7NCc0LzQ3Nj0AYKkp3aOLoQbpGRqFQKBRKUtGc0LyIB4oaCxUAAL4HoQIASInI/z51GXiJlEhQAAAAAElFTkSuQmCC" InformativeScreenshot="da8bb8a698b4a2693e4b43b0af67bee4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="Selector" Visibility="Interactive" WaitForReadyArgument="Complete">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="73, 372, 215, 27" ElementType="Text" FriendlyName="'Start Date'" FullSelectorArgument="&lt;webctrl tag='LABEL' aaname='Start Date' innertext='Start Date' parentid='yw1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='Start Date' innertext='Start Date' parentid='yw1' type='' class='col-sm-4 control-label' check:text='Start Date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAAfCAYAAABu+rjiAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOfSURBVHhe7dnPS9tgHAbw/U855VAICIKHnOzFgtCwyxBWEOxluclAHIziQTyIgpTBiuC6U4XNw6DC6A7Sw6ADiVDIQQgIAQ+BwrP3Td601cam2u6FwfOBgG/z63t4H7/Jm1cgIi0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDYiTRg2Ik0YNiJNGDaaTdDB0VYRlmHAEJu1+gbuua92emis19BVo3lEl7uofA3UKEuA5tukhnQzVxy4J2349+qQmSyu5lkxbJRv0MPRqonKmYdoIMcRwn4PnZsw2R9ewDUWM3F7x/ZMYatdqaEQBR7aBw7MVVHDrIFbYM2zYtgo320Tlacm5k0L7utlmIaF4noJpfVtXMRZCdDeq6K0YqruU0H9dxSfIgVfKyJUPvzzbZQKokNtfsH3wwpKS/JYeR2xnWTdcTJsiQidjzbMDx3xVyK4rKG6JmsT1y8so3LSS/Y9WbO4ynUTu2VrWPPRr2nBfx6GjfLJzmbb2P3xxMTLDGME/8ZPOqF0XYdTEMeosQybXXZQPe4ijLtl8nt3z3h2Zxv6cwS7sD+sI/I9+GnyBh7qZXN0XlbNd6LbLVXQ7Ktx2EHNdtBIx3Ni2Ggm0XUDVdF1rLKL+g8vCUhqWucb6qJmiIl8m4xk2Iz1Orzx6whzhS2uY3SPxx5cO6NmWVPps6dGCflY+/i3l2LYaHbiXc2/aqK2KR7BlqpoXKu2kRW2QYjeuXiMix/T5CYXVx6FbW8ynosIW0udHv5pobaV3r+EovhnMS1s8t7jCy/DLaPOl2DY6EWCcxdmuYF4PTJj4vaOizA3m/CHnSujsy06bOOPkeLvYmHskVDI62z5954Pw0YvMz5ZJyZuRiDi1b9/GbYI7R0T9mEvHk1eP8TFu+lh80+dBwssi8awUb5+F+2bAGE6C+99tD+IzpVOzDRI6We3eOIbcD6pdx3xSNk5cGDJTpMTNvmOZH+cNuEnwxaJ+hrvS7DWRFdTS//ye51RHr0Thj/34SyZo7BN1CzIBZJC8cFCkPys4N+pwZwYNsrXb8HdGH3Qlkvz1cMOguEjYgTvzMWyXMIvVJN3Jv/iwRJ6/bcvOkt+2HDXQU2dZx1m7FdhG75PGSaW16rYPR2vRxiI++2IgMtj1LK//80d65oZNUv9dvJOGl/bQnHDRYurkUT/F4aNSBOGjUgTho1IE4aNSBOGjUgTho1IC+AvjFwwy1OS7acAAAAASUVORK5CYII=" SearchSteps="Selector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey #1" sap:VirtualizedContainerService.HintSize="333.6,136.8" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a3846f4e-d1f1-4c3f-971a-e48853b4f5b2">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'DO printed'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="333.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="WindowMessages" ScopeIdentifier="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Text="[in_Config1(&quot;DailyDOPrintedFilter&quot;).ToString]" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/deliveryOrder" DesignTimeRectangle="950, 420, 401, 34" ElementType="DropDown" FriendlyName="'All'" FullSelectorArgument="&lt;webctrl id='DeliveryOrderSearchForm_isDoPrinted' tag='SELECT' aaname='DO printed' /&gt;" FuzzySelectorArgument="&lt;webctrl id='DeliveryOrderSearchForm_isDoPrinted' tag='SELECT' aaname='DO printed' type='' class='form-control' /&gt;" Guid="d434e18f-67f6-48c1-9b1f-2e40264c73a5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZUAAAAmCAYAAAAMcgZUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7dyxaxNhGMBh/8ksmYKrSyntYnAIgntwtINkLDg0g7jEQYtUcZFStB2lFOpS0EChRF59m1xybaNReqexPg+8kO++G7L9uMvlbgUAVERUAKjMhah8GZ7G3sFhbL/djxdvPhhjjDFzJzuRvchulE2jkht50tHxSYxGXydHAeCq7ET2IrtRDss0KlmcPAEAflV2I/tRmEYla+MKBYDfkd3IfhSmUcl7ZADwu8r9EBUArkVUAKiMqABQGVEBoDKiAkBlRAWAyogKAJX5y1HZjY1GO559Gq+On7aj8Wh3vADgn/NnovK+F61GJwZX3vwiKgA3yR+IylnsPGxG+147VrZm74QZExWAZbW5uRnD4XCymsljuTdP/VE53Ylusxs7B/1Yud2L2VthkqgALKOMRqPRiPX19Qthyc95LPfmhaX2qJw870Tz4c7365XjeHa3Fb33k41zogKwjDIea2trF8JSDkrulWNTqDkqh9FfbcbGu/FqFpiCqAAsq8thWRSUVG9UPj6JO3nLazRZnwyi03gQLz9P1qICsNTKYVkUlFRrVPYft6ZfpDyd58VjYKICsOyKsCwKSqovKuc/0K9E/9IDX2evu9Fc7cf4sKgA/AsyJouCkmqLytmrbjTuD+LKX1NG+9G73YreQS5EBeAmqS0qg/vN6L6e/SRfdri1Eq3H+XCxqADcJLVFBYD/j6gAUBlRAaAyogJAZUQFgMqICgCVERUAKjM3Kttv92M0+jpZAcBi2Y3sR2Ealb2Dwzg6vvJfeAD4oexG9qMwjcqX4el5bfIEVywA/Ex2InuR3ch+FKZRSbmRxcmT8h6ZMcYYM2+yE9mLclDShagAwHWICgAVifgGTzAHx3FJ4dgAAAAASUVORK5CYII=" InformativeScreenshot="f1cbfc5bab5541154e58f92aad30da08.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="720, 421, 215, 27" ElementType="Text" FriendlyName="'DO printed'" FullSelectorArgument="&lt;webctrl aaname='DO printed' tag='LABEL' innertext='DO printed' parentid='yw1' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='DO printed' tag='LABEL' innertext='DO printed' parentid='yw1' type='' class='col-sm-4 control-label' check:text='DO printed' /&gt;" ImageBase64="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" SearchSteps="Selector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey #2" sap:VirtualizedContainerService.HintSize="333.6,136.8" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="tab" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="300c054d-287a-4e15-bed5-69131df1ae97">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <uix:NClick ClickType="Single" DelayAfter="[Cint(in_Config1(&quot;DelayAfterMedium&quot;))]" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="333.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b4ec8c3c-4a8c-458a-b477-0115bf2088a3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://hhtc.insightservicing.sg/deliveryOrder" DesignTimeRectangle="293, 518, 91, 34" ElementType="Button" FriendlyName="'Search'" FullSelectorArgument="&lt;webctrl tag='BUTTON' aaname=' Search' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' aaname=' Search' type='submit' class='blue-dark btn btn-info' check:text='Search' /&gt;" Guid="4f07dcaa-640a-47fb-998e-2543d2d8f840" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAmCAYAAACiYUf8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG8SURBVGhD7ZTbS8JgGIf7z40uoquIbiIyMiTsRjMwotIQIzMDj1kKNU+1oc25PB/3azMRIZEuhFfZ+8BzsW/fu8Hzsa2BiKJUQaVaH1+ZE45PCMcnhOMTwvEJ4fiEkMX/0OPLHJ8GqayiJH9jMBiOV8wHWfxao42iWIGiNkx7AGTxjeCyUtN/PwrEUlX/EgxVU0kW32AwHKLR7OiHUB/9gswmaXyzw/EJ4fiEcHxCOD4hHJ8Qjk8IxyeE4xPC8Qnh+IRwfEI4PiELj69pGpqtDirVGsqyys5x4fHbnS6u7yLYPnTBsmNn57jw+GqtyeH/6cLjK2p95ovYv3J8Qjk+oRyfUI5PKMcnlOMTyvEJXcr4x/4Uoq9ZJNOGAh4D3pn7Vt0lix/AbTwLsdGDpo0fqNNrKkilknDOnFldlyq+8+ET1Y6GrizAce6DzXmDY5cXka8+tH4L+afgzDnLjhs2TxKJnASh8Otz1It9mx1HvgQSgjhZN4zdO7A+mjvB5l4U8YKI9HNi6nDdOHC+IDU1I7xlcOq6GN83vIInLCCTn9rzEsXGbgDBdwnJsH+yd8t6hst4DrFQCNbJvB0/beFO8KMcV6UAAAAASUVORK5CYII=" InformativeScreenshot="305ff98fca9b3032b19f2bc99d77c998.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="88, 314, 163, 22" FriendlyName="'Delivery Orders'" FullSelectorArgument="&lt;webctrl aaname='*Delivery Orders' tag='SPAN' innertext='*Delivery Orders' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*Delivery Orders' tag='SPAN' innertext='*Delivery Orders' type='' class='caption-subject bold font-green-jungle uppercase' check:text='Delivery Orders' /&gt;" ImageBase64="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" SearchSteps="Selector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey to page down" sap:VirtualizedContainerService.HintSize="333.6,136.8" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3049582b-4ef0-4495-af54-e5e5a355b932">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1618, 868" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALJSURBVDhPbZJNTBNREMdfd/v2s5QWSwMiFbAeFLxoDCGichAuhhAOJhC4Kxw0Rgz1pAdOnDTcBUM04SLyIZBw0MTEg6C2fiAkyMWDIUgi5Wu3b7bj7LbUhDDJZN+2M7/3n/8OOxzfGi4ypGc6FFYsVS2xNK1kK1KqMkS2VN+UKzoq1muqvcZ9TYtlFH5bcP9L8EsLbtJ5PKMqd/ZN46Rbs3GiwusphK0ZbDtU7rNVpVVoSgq47Dh+CQ9lln7/Yiu8bZcxyfblmzdiuZttTW0Dhf8Wvb0ItWfQkRiC4s8109nxUco+JEXrGUVpd3v2gkHGLF1n+2agiugp0BSEkWGEq1cQikwUffcQyssQqmIIF84jVBzPQ+SvlmFU27rGWJakCM7vujd5gOGnCJcbESIlCDMzKIaGEBYW0FldRTE3i6K7K+sqI5/6XBVsNxjSiDjpAVSO8OI5ip4eFCcr0Ukm0UmlUNy6iTA1haKlGTODgwDRCILse22ZAZ1ZATNCgE8FwNgYwvIywvw8ZtNpFIl+8qQWYXwcoTiIoGvokALq+UxjRF1AaQGQH0F0dqBovY7O2hrCo4cIdXUEeIUQDnkeeLV+OWkZepRtF3kjTP8HkImuB6FidD4uorOyguJBAmFi4jBgdjdQpHufkAy5fzCCePIYoaEeofQYwvQ0ZgYGEBYJ9OZtDpoH0HIlPBPpCxBArSHid++PWCVCwMwBno0guO+NlxAmpwoKqPaHpfA4LRVjW8Wh3CIp/AYtyR9HohvcW1xDq6vIMHrWnkUYHSUFZKIsbdLGdrg9m2VRVwNjO6rGNlVdykHkJVKSddUUYAEDxel4Vih8OcN5R9oMynu6kWs+iK1QmL1v72I256dorH7B5VmCJd0UfnkuI/kSFufxD03X2N/icL7riPh1ro4luzvZTiCg26YZdZPOxruWZvYzXpOvOgjG/gFejr3F3cctGQAAAABJRU5ErkJggg==" InformativeScreenshot="056c694c82e4781a9b56d0f51988a3a2.png" Selector="&lt;html app='chrome.exe' title='Hup Hin SDMS' /&gt;" Url="[in_Config1(&quot;DeliveryOrderPage&quot;).ToString]" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckInputRecords workflow" sap:VirtualizedContainerService.HintSize="896,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SDMS\CheckInputRecords.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config1">[in_Config1]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_DatatableExtracted">[dt_DatatableExtracted]</OutArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType1]</InOutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <If Condition="[dt_DatatableExtracted.Rows.Count&gt;0 and dt_DatatableExtracted.ColumnCount&gt;0]" DisplayName="If no records after filtering" sap:VirtualizedContainerService.HintSize="896,407.2" sap2010:WorkflowViewState.IdRef="If_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <ui:LogMessage DisplayName="Log Message - show number of transactions to process" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;There are &quot;+  dt_DatatableExtracted.Rows.Count.ToString+&quot; number of records to process.&quot;]" />
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="If Input records are not available #1" sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message No Input records #1" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;There are no input records available for processing for daily process.&quot;]" />
+                <Throw DisplayName="Throw error that no records available for processing #1" Exception="[new BusinessRuleException(&quot;There are no records available for daily process.&quot;)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_3" />
+              </Sequence>
+            </If.Else>
+          </If>
+          <Assign DisplayName="Assign Input daily to false #1" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[out_InputDaily]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log Message - create input file" sap:VirtualizedContainerService.HintSize="752.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Creating today's input excel file.&quot;]" />
+          <Assign DisplayName="Assign filename" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[ExcelFilename]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["InputExcelDaily_"+now.ToString("ddMMyyyyhhmmss")+".xlsx"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign ExcelFilepath" sap:VirtualizedContainerService.HintSize="752.8,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_InputExcelFileDaily]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[String.Join("\",in_InputExcelFolderPathDaily.ToString,ExcelFilename)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope for input file" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[out_InputExcelFileDaily]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <ui:ExcelWriteRange AddHeaders="True" DataTable="[dt_DatatableExtracted]" DisplayName="Write Range - extracted data" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet1" StartingCell="A1" />
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExcelApplicationScope>
+          <ui:LogMessage DisplayName="Log Message - input file ready" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Input fie is ready for processing.&quot;]" />
+          <ui:LogMessage DisplayName="Log Message - End of Extract input sequence for Daily process" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;End of Extract Sequence of Daily process.&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="797.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="In catch " sap:VirtualizedContainerService.HintSize="429.6,401.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - In catch" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Error" Message="[&quot;In the catch of extracting input for Daily process.&quot;+exception.Message+&quot; At Source: &quot;+exception.Source]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmail workflow Exception" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Reusable Code\SendExceptionEmail.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[exception.Message]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">[in_Config1("ExceptionBody").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">[in_Config1("CCEmailList").tostring]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList1">[in_Config1("RecipientsEmailList").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExScreenshotsFolderPath">[in_Config1("ExScreenshotsFolderPath").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_ExceptionOccured">[exception.Message]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType1]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Rethrow DisplayName="Rethrow current exception" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="797.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Business Exception catch" sap:VirtualizedContainerService.HintSize="408,439.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message No data for processing" sap:VirtualizedContainerService.HintSize="366.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;No data available for processing for daily process as DO datatable didn't have any records.&quot;]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendExceptionEmailNoData workflow" sap:VirtualizedContainerService.HintSize="366.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Reusable Code\SendExceptionEmailNoData.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Subject">[in_Config1("NoDataSubject").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_Body">[in_Config1("NoDataBodyDaily").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">[in_Config1("CCEmailList").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList1">[in_Config1("RecipientsEmailList").ToString]</InArgument>
+                  <InOutArgument x:TypeArguments="x:String" x:Key="io_ProcessType1">[io_ProcessType1]</InOutArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Assign DisplayName="Assign increase thr process counter" sap:VirtualizedContainerService.HintSize="366.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[io_ProcessCounterDaily]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[io_ProcessCounterDaily+1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
