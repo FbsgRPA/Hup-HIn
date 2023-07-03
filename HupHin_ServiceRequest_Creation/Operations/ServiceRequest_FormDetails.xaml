@@ -12,7 +12,7 @@
     <x:Property Name="in_Term" Type="InArgument(x:String)" />
     <x:Property Name="in_DateToProcess" Type="InArgument(s:DateTime)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1236.8,2549.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2033.6,2727.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -106,28 +106,28 @@
       <AssemblyReference>System.Data.Common</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Service Request Form Details" sap:VirtualizedContainerService.HintSize="1247.2,2484.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+  <Sequence DisplayName="Service Request Form Details" sap:VirtualizedContainerService.HintSize="2044,2662.4" sap2010:WorkflowViewState.IdRef="Sequence_8">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Service Request Form" sap:VirtualizedContainerService.HintSize="1205.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter service request form details&quot;]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="1205.6,2259.2" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6820a81c14897ab1d6d01da65c4c8b9e" UiBrowser="[io_SdmsTab]">
+    <ui:LogMessage DisplayName="Log Service Request Form" sap:VirtualizedContainerService.HintSize="2002.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter service request form details&quot;]" />
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_SdmsTab]" BrowserType="Chrome" DisplayName="Use Browser Chrome: Hup Hin SDMS" sap:VirtualizedContainerService.HintSize="2002.4,2436.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6820a81c14897ab1d6d01da65c4c8b9e" UiBrowser="[io_SdmsTab]">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1172,2112" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1968.8,2289.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type Start Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="1130.4,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_StartHour+&quot;:&quot;+in_StartSec]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type Start Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="1927.2,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_StartHour+&quot;:&quot;+in_StartSec]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d34aa821-26d0-423c-9ab6-212356f7e7c3" InformativeScreenshot="70ebd13dd4b1e0eeaea0226e7e81da1f" Selector="&lt;webctrl id='ServiceRequest_scheduled_start_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
@@ -136,38 +136,87 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <If Condition="[in_Term.Equals(&quot;Daily&quot;)]" DisplayName="If Term is Monthly" sap:VirtualizedContainerService.HintSize="1130.4,687.2" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[in_Term.Equals(&quot;Daily&quot;)]" DisplayName="If Term is Monthly" sap:VirtualizedContainerService.HintSize="1927.2,864.8" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <If Condition="[(in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;PM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;)) Or (in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;))]" DisplayName="If End time has AM in it" sap:VirtualizedContainerService.HintSize="711.2,294.4" sap2010:WorkflowViewState.IdRef="If_1">
+                <Sequence DisplayName="Daily Conditions" sap:VirtualizedContainerService.HintSize="1508,705.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[in_NextDayDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                        </ui:Target>
-                      </ui:TypeInto.Target>
-                    </ui:TypeInto>
-                  </If.Then>
-                  <If.Else>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                        </ui:Target>
-                      </ui:TypeInto.Target>
-                    </ui:TypeInto>
-                  </If.Else>
-                </If>
+                  <If Condition="[in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;PM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;)]" DisplayName="If End time has AM in it" sap:VirtualizedContainerService.HintSize="1466.4,612.8" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[in_NextDayDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[in_TransactionItem(&quot;START&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;) and in_TransactionItem(&quot;END&quot;).ToString.Trim.ToUpper.Contains(&quot;AM&quot;)]" DisplayName="If both AM" sap:VirtualizedContainerService.HintSize="1088.8,453.6" sap2010:WorkflowViewState.IdRef="If_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <If Condition="[CInt(in_StartHour)&gt; cint(in_EndHour)]" DisplayName="If Start Time &gt; End Time" sap:VirtualizedContainerService.HintSize="711.2,294.4" sap2010:WorkflowViewState.IdRef="If_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_13" SendWindowMessages="False" SimulateType="True" Text="[in_NextDayDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                  </ui:Target>
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                            </If.Then>
+                            <If.Else>
+                              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
+                                <ui:TypeInto.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                  </ui:Target>
+                                </ui:TypeInto.Target>
+                              </ui:TypeInto>
+                            </If.Else>
+                          </If>
+                        </If.Then>
+                        <If.Else>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DeselectAfter="True" DisplayName="Type End Date Time" EmptyField="False" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_14" SendWindowMessages="False" SimulateType="True" Text="[in_ProcessDate+&quot; &quot;+in_EndHour+&quot;:&quot;+in_EndSec]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="49f9635c-23bd-4625-9374-b187d6e3e314" InformativeScreenshot="49b8d48042c4ab6f4fb598f54576fe2c" Selector="&lt;webctrl id='ServiceRequest_scheduled_end_datetime_1' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                </Sequence>
               </If.Then>
               <If.Else>
                 <Sequence DisplayName="End date" sap:VirtualizedContainerService.HintSize="375.2,528" sap2010:WorkflowViewState.IdRef="Sequence_13">
@@ -217,7 +266,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Remarks" sap:VirtualizedContainerService.HintSize="619.2,114.4" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[in_TransactionItem(&quot;INFORMATION&quot;).ToString]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Remarks" sap:VirtualizedContainerService.HintSize="1927.2,114.4" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[in_TransactionItem(&quot;INFORMATION&quot;).ToString]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2aa43275-9d9b-4f40-8a5c-332c9288d5e2" Selector="&lt;webctrl id='ServiceRequest_remarks_1' tag='TEXTAREA' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -229,7 +278,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Oubound No" sap:VirtualizedContainerService.HintSize="619.2,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Oubound No" sap:VirtualizedContainerService.HintSize="1927.2,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="0" OffsetY="0" Position="TopLeft" />
               </ui:Click.CursorPosition>
@@ -241,7 +290,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Inbound No" sap:VirtualizedContainerService.HintSize="619.2,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Inbound No" sap:VirtualizedContainerService.HintSize="1927.2,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition OffsetX="0" OffsetY="0" Position="TopLeft" />
               </ui:Click.CursorPosition>
